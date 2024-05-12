@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup Nuget.exe
-      uses: nuget/setup-nuget@v1
+      uses: nuget/setup-nuget@v2
     - name: Nuget Restore
       run: nuget restore SystemTrayMenu.sln
     - name: Setup MSBuild.exe
