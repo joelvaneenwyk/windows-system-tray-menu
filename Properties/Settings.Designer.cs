@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Windows.Foundation.Metadata;
+using System;
 
 namespace SystemTrayMenu.Properties
 {
@@ -1342,7 +1342,7 @@ namespace SystemTrayMenu.Properties
             }
         }
 
-        [Deprecated("Used in 1.x, Deprecated since 2.0.0.0", DeprecationType.Deprecate, 1)]
+        [Obsolete("Used in 1.x, Deprecated since 2.0.0.0")]
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(CustomSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1503,7 +1503,7 @@ namespace SystemTrayMenu.Properties
             }
         }
 
-        [Deprecated("Used in 1.x, Deprecated since 2.0.0.0", DeprecationType.Deprecate, 1)]
+        [Obsolete("Used in 1.x, Deprecated since 2.0.0.0")]
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(CustomSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

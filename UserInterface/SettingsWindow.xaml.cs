@@ -31,7 +31,7 @@ namespace SystemTrayMenu.UserInterface
 
         public SettingsWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             PreviewKeyDown += HandlePreviewKeyDown;
 
