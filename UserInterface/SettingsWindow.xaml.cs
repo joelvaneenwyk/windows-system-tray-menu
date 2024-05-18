@@ -17,7 +17,8 @@ namespace SystemTrayMenu.UserInterface
     using SystemTrayMenu.Properties;
     using SystemTrayMenu.UserInterface.FolderBrowseDialog;
     using SystemTrayMenu.Utilities;
-    using Windows.ApplicationModel;
+    // #todo #joelvaneenwyk
+    // using Windows.ApplicationModel;
 
     /// <summary>
     /// Logic of SettingsWindow.xaml .
@@ -31,7 +32,8 @@ namespace SystemTrayMenu.UserInterface
 
         public SettingsWindow()
         {
-            //InitializeComponent();
+            // #todo #joelvaneenwyk
+            // InitializeComponent();
 
             PreviewKeyDown += HandlePreviewKeyDown;
 
@@ -631,48 +633,60 @@ namespace SystemTrayMenu.UserInterface
 
         private async void ButtonAddStartup_Click(object sender, RoutedEventArgs e)
         {
+            // #todo #joelvaneenwyk
             // Pass the task ID you specified in the appxmanifest file
-            StartupTask startupTask = await StartupTask.GetAsync("MyStartupId");
-            Log.Info($"Autostart {startupTask.State}.");
+            // StartupTask startupTask = await StartupTask.GetAsync("MyStartupId");
+            // Log.Info($"Autostart {startupTask.State}.");
 
-            switch (startupTask.State)
-            {
-                case StartupTaskState.Enabled:
-                case StartupTaskState.EnabledByPolicy:
-                    UpdateLabelStartupStatus(startupTask.State);
-                    break;
-                case StartupTaskState.Disabled:
-                    // Task is disabled but can be enabled.
-                    StartupTaskState newState = await startupTask.RequestEnableAsync();
-                    UpdateLabelStartupStatus(newState);
-                    break;
-                case StartupTaskState.DisabledByUser:
-                    UpdateLabelStartupStatus(startupTask.State);
-                    break;
-                case StartupTaskState.DisabledByPolicy:
-                    UpdateLabelStartupStatus(startupTask.State);
-                    break;
-                default:
-                    break;
-            }
+            // #todo #joelvaneenwyk
+            // switch (startupTask.State)
+            // {
+            //     case StartupTaskState.Enabled:
+            //     case StartupTaskState.EnabledByPolicy:
+            //         UpdateLabelStartupStatus(startupTask.State);
+            //         break;
+            //     case StartupTaskState.Disabled:
+            //         // Task is disabled but can be enabled.
+            //         StartupTaskState newState = await startupTask.RequestEnableAsync();
+            //         UpdateLabelStartupStatus(newState);
+            //         break;
+            //     case StartupTaskState.DisabledByUser:
+            //         UpdateLabelStartupStatus(startupTask.State);
+            //         break;
+            //     case StartupTaskState.DisabledByPolicy:
+            //         UpdateLabelStartupStatus(startupTask.State);
+            //         break;
+            //     default:
+            //         break;
+            // }
+        }
+
+        // #todo #joelvaneenwyk
+        public enum StartupTaskState
+        {
+            Enabled,
+            Disabled,
+            DisabledByPolicy,
+            DisabledByUser
         }
 
         private void UpdateLabelStartupStatus(StartupTaskState newState)
         {
-            switch (newState)
-            {
-                case StartupTaskState.Disabled:
-                case StartupTaskState.DisabledByUser:
-                case StartupTaskState.DisabledByPolicy:
-                    labelStartupStatus.Content = Translator.GetText("Deactivated");
-                    break;
-                case StartupTaskState.Enabled:
-                case StartupTaskState.EnabledByPolicy:
-                    labelStartupStatus.Content = Translator.GetText("Activated");
-                    break;
-                default:
-                    break;
-            }
+            // #todo #joelvaneenwyk
+            // switch (newState)
+            // {
+            //     case StartupTaskState.Disabled:
+            //     case StartupTaskState.DisabledByUser:
+            //     case StartupTaskState.DisabledByPolicy:
+            //         labelStartupStatus.Content = Translator.GetText("Deactivated");
+            //         break;
+            //     case StartupTaskState.Enabled:
+            //     case StartupTaskState.EnabledByPolicy:
+            //         labelStartupStatus.Content = Translator.GetText("Activated");
+            //         break;
+            //     default:
+            //         break;
+            // }
         }
 
         private void ButtonChange_Click(object sender, RoutedEventArgs e)

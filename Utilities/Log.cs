@@ -12,14 +12,14 @@ namespace SystemTrayMenu.Utilities
     using System.Reflection;
     using System.Threading;
     using System.Windows;
-    using Clearcove.Logging;
-    using IWshRuntimeLibrary;
+    // using Clearcove.Logging;
+    // using IWshRuntimeLibrary;
     using File = System.IO.File;
 
     internal static class Log
     {
         private const string LogfileLastExtension = "_last";
-        private static readonly Logger LogValue = new(string.Empty);
+        // private static readonly Logger LogValue = new(string.Empty);
         private static readonly List<string> Warnings = new();
         private static readonly List<string> Infos = new();
 
@@ -64,7 +64,8 @@ namespace SystemTrayMenu.Utilities
                 }
             }
 
-            Logger.Start(fileInfo);
+            // #todo #joelvaneenwyk
+            // Logger.Start(fileInfo);
 
             if (warnFailedToSaveLogFile)
             {
@@ -82,7 +83,8 @@ namespace SystemTrayMenu.Utilities
             if (!Infos.Contains(message))
             {
                 Infos.Add(message);
-                LogValue.Info(message);
+                // #todo #joelvaneenwyk
+                // LogValue.Info(message);
             }
         }
 
@@ -92,14 +94,13 @@ namespace SystemTrayMenu.Utilities
             if (!Warnings.Contains(warning))
             {
                 Warnings.Add(warning);
-                LogValue.Warn(warning);
+                // LogValue.Warn(warning);
             }
         }
 
         internal static void Error(string message, Exception ex)
         {
-            LogValue.Error($"{message}{Environment.NewLine}" +
-                $"{ex}");
+            // LogValue.Error($"{message}{Environment.NewLine}" + $"{ex}");
         }
 
         internal static string GetLogFilePath(string backup = "")
@@ -126,19 +127,20 @@ namespace SystemTrayMenu.Utilities
 
         internal static void WriteApplicationRuns()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            Version? version = assembly.GetName().Version;
-            LogValue.Info($"Application Start " +
-                assembly.ManifestModule.Name + " | " +
-                (version != null ? version.ToString() : string.Empty) + " | " +
-                $"ScalingFactor={Scaling.Factor}");
+            // Assembly assembly = Assembly.GetExecutingAssembly();
+            // Version? version = assembly.GetName().Version;
+            // LogValue.Info($"Application Start " +
+            //     assembly.ManifestModule.Name + " | " +
+            //     (version != null ? version.ToString() : string.Empty) + " | " +
+            //     $"ScalingFactor={Scaling.Factor}");
         }
 
         internal static void Close()
         {
             try
             {
-                Logger.ShutDown();
+                // #todo #joelvaneenwyk
+                // Logger.ShutDown();
             }
             catch (Exception ex)
             {
@@ -169,13 +171,14 @@ namespace SystemTrayMenu.Utilities
                         .Equals(".lnk", StringComparison.InvariantCultureIgnoreCase);
                     if (isLink)
                     {
-                        WshShell shell = new();
-                        IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(fileName);
-                        bool startAsAdmin = shortcut.WindowStyle == 3;
-                        if (startAsAdmin)
-                        {
-                            verb = "runas";
-                        }
+                        // #todo #joelvaneenwyk
+                        // WshShell shell = new();
+                        // IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(fileName);
+                        // bool startAsAdmin = shortcut.WindowStyle == 3;
+                        // if (startAsAdmin)
+                        // {
+                        //     verb = "runas";
+                        // }
                     }
                 }
 

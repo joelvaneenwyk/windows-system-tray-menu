@@ -7,7 +7,7 @@ namespace SystemTrayMenu.Utilities
     using System;
     using System.IO;
     using System.Threading;
-    using Shell32;
+    //  using Shell32;
 
     internal class FileLnk
     {
@@ -59,39 +59,41 @@ namespace SystemTrayMenu.Utilities
                 string? pathOnly = Path.GetDirectoryName((string)shortcutFilename);
                 string? filenameOnly = Path.GetFileName((string)shortcutFilename);
 
-                Shell shell = new();
-                Folder folder = shell.NameSpace(pathOnly);
-                if (folder == null)
-                {
-                    Log.Info($"{nameof(GetShortcutFileNamePath)} folder == null for path:'{shortcutFilename}'");
-                    return resolvedFilename;
-                }
+                // #todo #joelvaneenwyk
+                // Shell shell = new();
+                // Folder folder = shell.NameSpace(pathOnly);
+                // if (folder == null)
+                // {
+                //     Log.Info($"{nameof(GetShortcutFileNamePath)} folder == null for path:'{shortcutFilename}'");
+                //     return resolvedFilename;
+                // }
 
-                FolderItem folderItem = folder.ParseName(filenameOnly);
-                if (folderItem == null)
-                {
-                    Log.Info($"{nameof(GetShortcutFileNamePath)} folderItem == null for path:'{shortcutFilename}'");
-                    return resolvedFilename;
-                }
+                // FolderItem folderItem = folder.ParseName(filenameOnly);
+                // if (folderItem == null)
+                // {
+                //     Log.Info($"{nameof(GetShortcutFileNamePath)} folderItem == null for path:'{shortcutFilename}'");
+                //     return resolvedFilename;
+                // }
 
-                ShellLinkObject link = (ShellLinkObject)folderItem.GetLink;
-                isFolder = link.Target.IsFolder;
-                if (string.IsNullOrEmpty(link.Path))
-                {
-                    // https://github.com/Hofknecht/SystemTrayMenu/issues/242
-                    // do not set CLSID key (GUID) shortcuts as resolvedFilename
-                    if (!link.Target.Path.Contains("::{"))
-                    {
-                        resolvedFilename = link.Target.Path;
-                    }
-                }
-                else
-                {
-                    resolvedFilename = link.Path;
-                }
+                // ShellLinkObject link = (ShellLinkObject)folderItem.GetLink;
+                // isFolder = link.Target.IsFolder;
+                // if (string.IsNullOrEmpty(link.Path))
+                // {
+                //     // https://github.com/Hofknecht/SystemTrayMenu/issues/242
+                //     // do not set CLSID key (GUID) shortcuts as resolvedFilename
+                //     if (!link.Target.Path.Contains("::{"))
+                //     {
+                //         resolvedFilename = link.Target.Path;
+                //     }
+                // }
+                // else
+                // {
+                //     resolvedFilename = link.Path;
+                // }
             }
             catch (UnauthorizedAccessException)
             {
+                // #todo #joelvaneenwyk
                 // https://stackoverflow.com/questions/2934420/why-do-i-get-e-accessdenied-when-reading-public-shortcuts-through-shell32
                 // e.g. Administrative Tools\Component Services.lnk which can not be resolved, do not spam the logfile in this case
             }
