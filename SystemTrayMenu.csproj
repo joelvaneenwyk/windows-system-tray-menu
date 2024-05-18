@@ -1,135 +1,108 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-  <!-- Global project settings -->
-  <PropertyGroup>
-    <TargetFrameworks>net9.0-windows</TargetFrameworks>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <OutputType>WinExe</OutputType>
-    <UseWPF>true</UseWPF>
-    <Nullable>enable</Nullable>
-    <SelfContained>true</SelfContained>
-    <Platforms>x64;x86;AnyCPU</Platforms>
-    <Configurations>Debug;Release;ReleasePackage</Configurations>
-    <OutputType>WinExe</OutputType>
-    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>true</UseApplicationTrust>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PreBuildEvent>taskkill /f /fi "pid gt 0" /im SystemTrayMenu.exe &amp; EXIT 0</PreBuildEvent>
-    <RepositoryUrl>https://github.com/joelvaneenwyk/SystemTrayMenu</RepositoryUrl>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>hofknecht.eu/systemtraymenu/</PackageProjectUrl>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageTags>SystemTrayMenu</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <StartupObject>SystemTrayMenu.Program</StartupObject>
-    <ApplicationManifest>Resources\app.manifest</ApplicationManifest>
-    <ApplicationIcon>Resources\SystemTrayMenu.ico</ApplicationIcon>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <NoWarn>1701;1702;WFAC010;MSB3061</NoWarn>
-  </PropertyGroup>
-  <!-- Release settings -->
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <ErrorReport>none</ErrorReport>
-    <DebugSymbols>true</DebugSymbols>
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|x64'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|x86'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|AnyCPU'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="build\**" />
-    <EmbeddedResource Remove="build\**" />
-    <None Remove="build\**" />
-    <Page Remove="build\**" />
-  </ItemGroup>
-  <!-- Files -->
-  <ItemGroup>
-    <AdditionalFiles Include=".stylecop.json" />
-    <ApplicationDefinition Include="Business\App.xaml" />
-    <EmbeddedResource Remove="UserInterface\Menu.resx" />
-    <Resource Include="Resources\SystemTrayMenu.ico" />
-    <Resource Include="Resources\SystemTrayMenu.png" />
-    <Resource Include="Resources\LinkArrow.ico" />
-    <Resource Include="Resources\Loading.ico" />
-    <Resource Include="Resources\HowToOpenSettings.png" />
-    <Resource Include="Resources\NotFound.ico" />
-    <Folder Include="Packaging\AppPackages\" />
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <None Include="LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>
-      </PackagePath>
-    </None>
-    <None Update="Package.appxmanifest">
-      <SubType>Designer</SubType>
-    </None>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-  <!-- References NuGet -->
-  <ItemGroup Condition=" '$(RuntimeIdentifier)' == 'win-x64' ">
-    <FrameworkReference Update="Microsoft.WindowsDesktop.App;Microsoft.WindowsDesktop.App.WPF" TargetingPackVersion="7.0.0" />
-    <PackageReference Include="H.NotifyIcon" Version="2.0.131" />
-    <PackageReference Include="HidSharp" Version="2.1.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <!-- References Native
-  <ItemGroup Condition=" '$(RuntimeIdentifier)' == 'win-x64' ">
-    <COMReference Include="IWshRuntimeLibrary">
-      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Shell32">
-      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  -->
+	<!-- Global project settings -->
+	<PropertyGroup>
+		<TargetFrameworks>net9.0-windows</TargetFrameworks>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<OutputType>WinExe</OutputType>
+		<UseWPF>true</UseWPF>
+		<Nullable>enable</Nullable>
+		<SelfContained>true</SelfContained>
+		<Platforms>x64;x86;AnyCPU</Platforms>
+		<Configurations>Debug;Release;ReleasePackage</Configurations>
+		<OutputType>WinExe</OutputType>
+		<OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+		<PublishUrl>publish\</PublishUrl>
+		<Install>true</Install>
+		<InstallFrom>Disk</InstallFrom>
+		<UpdateEnabled>false</UpdateEnabled>
+		<UpdateMode>Foreground</UpdateMode>
+		<UpdateInterval>7</UpdateInterval>
+		<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		<UpdatePeriodically>false</UpdatePeriodically>
+		<UpdateRequired>false</UpdateRequired>
+		<MapFileExtensions>true</MapFileExtensions>
+		<ApplicationRevision>0</ApplicationRevision>
+		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		<UseApplicationTrust>true</UseApplicationTrust>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<PreBuildEvent>taskkill /f /fi "pid gt 0" /im SystemTrayMenu.exe &amp; EXIT 0</PreBuildEvent>
+		<RepositoryUrl>https://github.com/joelvaneenwyk/SystemTrayMenu</RepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>hofknecht.eu/systemtraymenu/</PackageProjectUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageTags>SystemTrayMenu</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<StartupObject>SystemTrayMenu.Program</StartupObject>
+		<ApplicationManifest>Resources\app.manifest</ApplicationManifest>
+		<ApplicationIcon>Resources\SystemTrayMenu.ico</ApplicationIcon>
+		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+		<NoWarn>1701;1702;WFAC010;MSB3061</NoWarn>
+	</PropertyGroup>
+	<!-- Release settings -->
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<ErrorReport>none</ErrorReport>
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|x64'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|x86'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|AnyCPU'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="build\**" />
+		<EmbeddedResource Remove="build\**" />
+		<None Remove="build\**" />
+		<Page Remove="build\**" />
+	</ItemGroup>
+	<!-- Files -->
+	<ItemGroup>
+		<AdditionalFiles Include=".stylecop.json" />
+		<ApplicationDefinition Include="Business\App.xaml" />
+		<EmbeddedResource Remove="UserInterface\Menu.resx" />
+		<Resource Include="Resources\SystemTrayMenu.ico" />
+		<Resource Include="Resources\SystemTrayMenu.png" />
+		<Resource Include="Resources\LinkArrow.ico" />
+		<Resource Include="Resources\Loading.ico" />
+		<Resource Include="Resources\HowToOpenSettings.png" />
+		<Resource Include="Resources\NotFound.ico" />
+		<Folder Include="Packaging\AppPackages\" />
+		<Compile Update="Properties\Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+		<None Include="LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>
+			</PackagePath>
+		</None>
+		<None Update="Package.appxmanifest">
+			<SubType>Designer</SubType>
+		</None>
+		<None Update="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Update="Microsoft.WindowsDesktop.App;Microsoft.WindowsDesktop.App.WPF" TargetingPackVersion="7.0.0" />
+		<PackageReference Include="H.NotifyIcon" Version="2.0.131" />
+		<PackageReference Include="HidSharp" Version="2.1.0" />
+		<PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 </Project>
