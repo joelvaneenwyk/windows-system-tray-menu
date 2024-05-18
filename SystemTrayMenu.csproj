@@ -2,7 +2,7 @@
   <!-- Global project settings -->
   <PropertyGroup>
     <TargetFrameworks>net9.0-windows</TargetFrameworks>
-    <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <OutputType>WinExe</OutputType>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
@@ -25,7 +25,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PreBuildEvent>taskkill /f /fi "pid gt 0" /im SystemTrayMenu.exe &gt;nul & EXIT 0</PreBuildEvent>
+    <PreBuildEvent>taskkill /f /fi "pid gt 0" /im SystemTrayMenu.exe &amp; EXIT 0</PreBuildEvent>
     <RepositoryUrl>https://github.com/joelvaneenwyk/SystemTrayMenu</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>hofknecht.eu/systemtraymenu/</PackageProjectUrl>
@@ -105,7 +105,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <!-- References Native -->
+  <!-- References Native
   <ItemGroup Condition=" '$(RuntimeIdentifier)' == 'win-x64' ">
     <COMReference Include="IWshRuntimeLibrary">
       <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
@@ -126,4 +126,5 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  -->
 </Project>
