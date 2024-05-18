@@ -55,7 +55,7 @@ jobs:
 
     - name: Setup Nuget.exe
       if: matrix.build-mode == 'manual'
-      uses: nuget/setup-nuget@v1
+      uses: nuget/setup-nuget@v2
     - name: Nuget Restore
       if: matrix.build-mode == 'manual'
       run: nuget restore SystemTrayMenu.sln
