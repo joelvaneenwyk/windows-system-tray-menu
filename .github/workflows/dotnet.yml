@@ -1,4 +1,4 @@
-name: NetFramework
+name: DotNet Build
 
 on: [push]
 jobs:
