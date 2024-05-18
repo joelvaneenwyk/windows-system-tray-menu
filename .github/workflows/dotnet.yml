@@ -1,0 +1,19 @@
+name: NetFramework
+
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+          dotnet-quality: "preview"
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build

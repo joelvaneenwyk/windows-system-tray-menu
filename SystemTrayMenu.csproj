@@ -55,6 +55,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net8.0-windows|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="build\**" />
+    <EmbeddedResource Remove="build\**" />
+    <None Remove="build\**" />
+    <Page Remove="build\**" />
+  </ItemGroup>
   <!-- Files -->
   <ItemGroup>
     <AdditionalFiles Include=".stylecop.json" />
@@ -77,7 +83,6 @@
       <PackagePath>
       </PackagePath>
     </None>
-    <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.22621.3233" />
     <None Update="Package.appxmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -100,7 +105,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.507">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
