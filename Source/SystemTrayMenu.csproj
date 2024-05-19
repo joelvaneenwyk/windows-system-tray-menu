@@ -6,10 +6,7 @@
 		<OutputType>WinExe</OutputType>
 		<UseWPF>true</UseWPF>
 		<Nullable>enable</Nullable>
-		<Platforms>x64</Platforms>
-		<Configurations>Debug;Release;ReleasePackage</Configurations>
 		<OutputType>WinExe</OutputType>
-		<OutputPath>bin/$(Platform)/$(Configuration)/</OutputPath>
 		<PublishUrl>publish/</PublishUrl>
 		<Install>true</Install>
 		<InstallFrom>Disk</InstallFrom>
@@ -24,11 +21,10 @@
 		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
 		<UseApplicationTrust>true</UseApplicationTrust>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<PreBuildEvent>taskkill /f /fi "pid gt 0" /im SystemTrayMenu.exe &amp; EXIT 0</PreBuildEvent>
 		<RepositoryUrl>https://github.com/joelvaneenwyk/SystemTrayMenu</RepositoryUrl>
-		<PackageIcon>icon.png</PackageIcon>
-		<PackageProjectUrl>hofknecht.eu/systemtraymenu/</PackageProjectUrl>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageIcon>Resources/SystemTrayMenu.png</PackageIcon>
+		<PackageProjectUrl>https://joelvaneenwyk.github.io/windows-system-tray-menu/</PackageProjectUrl>
+		<PackageLicenseFile>$(ProjectDir)/../LICENSE</PackageLicenseFile>
 		<PackageTags>SystemTrayMenu</PackageTags>
 		<PackageReadmeFile>$(ProjectDir)/../README.md</PackageReadmeFile>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
@@ -36,35 +32,27 @@
 		<StartupObject>SystemTrayMenu.Program</StartupObject>
 		<ApplicationManifest>Resources/app.manifest</ApplicationManifest>
 		<ApplicationIcon>Resources/SystemTrayMenu.ico</ApplicationIcon>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 		<NoWarn>1701;1702;WFAC010;MSB3061</NoWarn>
 		<AnalysisLevel>latest-minimum</AnalysisLevel>
 	</PropertyGroup>
-	<!-- Release settings -->
-	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-		<ErrorReport>none</ErrorReport>
-		<DebugSymbols>true</DebugSymbols>
-		<Optimize>True</Optimize>
-	</PropertyGroup>
 	<ItemGroup>
-		<Compile Remove="build/**" />
-		<Compile Remove="Packaging/**" />
-		<EmbeddedResource Remove="build/**" />
-		<EmbeddedResource Remove="Packaging/**" />
-		<None Remove="build/**" />
-		<None Remove="Packaging/**" />
-		<Page Remove="build/**" />
-		<Compile Remove="obj/**" />
-		<EmbeddedResource Remove="obj/**" />
-		<None Remove="obj/**" />
-		<Page Remove="obj/**" />
 		<Compile Remove="bin/**" />
+		<Compile Remove="build/**" />
+		<Compile Remove="obj/**" />
+		<Compile Remove="Packaging/**" />
 		<EmbeddedResource Remove="bin/**" />
+		<EmbeddedResource Remove="build/**" />
+		<EmbeddedResource Remove="obj/**" />
+		<EmbeddedResource Remove="Packaging/**" />
 		<None Remove="bin/**" />
+		<None Remove="build/**" />
+		<None Remove="obj/**" />
+		<None Remove="Packaging/**" />
 		<Page Remove="bin/**" />
+		<Page Remove="build/**" />
+		<Page Remove="obj/**" />
 		<Page Remove="Packaging/**" />
 	</ItemGroup>
-	<!-- Files -->
 	<ItemGroup>
 		<ApplicationDefinition Include="Business/App.xaml" />
 		<EmbeddedResource Remove="UserInterface/Menu.resx" />

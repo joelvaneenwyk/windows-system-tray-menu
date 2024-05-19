@@ -3,8 +3,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
 
     <SolutionName>SystemTrayMenu.sln</SolutionName>
-    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/$(SolutionName)')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)))</ProjectRoot>
-    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/../$(SolutionName)')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/../'))</ProjectRoot>
+    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/SystemTrayMenu.sln')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)))</ProjectRoot>
+    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/../SystemTrayMenu.sln')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/../'))</ProjectRoot>
 
     <ProjectRootPrefix Condition="HasTrailingSlash('$(ProjectRoot)')">$(ProjectRoot)</ProjectRootPrefix>
     <ProjectRootPrefix Condition="!HasTrailingSlash('$(ProjectRoot)')">$(ProjectRoot)/</ProjectRootPrefix>
@@ -16,12 +16,18 @@
            tell Microsoft.Common.props not to import Directory.Build.props again. -->
     <ImportDirectoryBuildProps>true</ImportDirectoryBuildProps>
 
+    <!-- See https://docs.microsoft.com/en-us/dotnet/standard/assembly/reference-assemblies -->
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <Prefer32Bit>false</Prefer32Bit>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+
+		<Platforms>x64</Platforms>
+		<Configurations>Debug;Release;ReleasePackage</Configurations>
 
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>

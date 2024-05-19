@@ -5,17 +5,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemTrayMenu", "Source\SystemTrayMenu.csproj", "{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}"
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Packaging", "Packaging\Packaging.wapproj", "{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85} = {9FDF44D5-4BB3-47B6-AB52-5CA337966C85}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D9392-6592-4F44-B8D4-1781502FE7E6}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.stylecop.json = .stylecop.json
-		app.config = app.config
-		azure-pipelines.yml = azure-pipelines.yml
 		build.cmd = build.cmd
 		build.ps1 = build.ps1
 		build.sh = build.sh
@@ -25,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D93
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", ".build\_build.csproj", "{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,12 +32,6 @@ Global
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.Deploy.0 = Debug|x64
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.Build.0 = Release|x64
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.Deploy.0 = Release|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.Debug|x64.ActiveCfg = Debug|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.Debug|x64.Build.0 = Debug|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.Release|x64.ActiveCfg = Release|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.Release|x64.Build.0 = Release|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.ReleasePackage|x64.ActiveCfg = Release|x64
-		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85}.ReleasePackage|x64.Build.0 = Release|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x64.ActiveCfg = Debug|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x64.Build.0 = Debug|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x64.ActiveCfg = Release|x64
@@ -63,4 +50,23 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECA870FE-709A-4EC0-9F28-206977283A13}
 	EndGlobalSection
+EndGlobal
+F2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
+		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.ActiveCfg = Debug|x64
+		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.ActiveCfg = Release|x64
+		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
+		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
+		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Deploy.0 = ReleasePackage|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECA870FE-709A-4EC0-9F28-206977283A13}
+	EndGlobalSection
+EndGlobal
+206977283A13}
+	EndGlobalSection
+EndGlobal
+dGlobalSection
 EndGlobal
