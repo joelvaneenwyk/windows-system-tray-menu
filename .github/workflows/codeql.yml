@@ -52,10 +52,10 @@ jobs:
           dotnet-quality: "preview"
       - name: Restore
         if: matrix.build-mode == 'manual'
-        run: dotnet restore -c "Release" Source\SystemTrayMenu.csproj
+        run: dotnet restore
       - name: Build
         if: matrix.build-mode == 'manual'
-        run: dotnet build -c "Release" Source\SystemTrayMenu.csproj
+        run: dotnet build -c "Release" ./Source/SystemTrayMenu.csproj
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
