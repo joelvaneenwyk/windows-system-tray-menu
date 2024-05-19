@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "dependencies": {
+    "UAP,Version=v10.0.17763": {
+      "Microsoft.Windows.SDK.BuildTools": {
+        "type": "Direct",
+        "requested": "[10.0.22000.194, 10.0.22000.194]",
+        "resolved": "10.0.22000.194",
+        "contentHash": "4L0P3zqut466SIqT3VBeLTNUQTxCBDOrTRymRuROCRJKazcK7ibLz9yAO1nKWRt50ttCj39oAa2Iuz9ZTDmLlg=="
+      },
+      "H.GeneratedIcons.System.Drawing": {
+        "type": "Transitive",
+        "resolved": "2.0.131",
+        "contentHash": "QoNGQrhxzG+dQufa4xRjSqihMy5aVVVZqQUt0fLJbwhs7rcM4hpN1qVkZpZEkHsRgrHfFBC/Ursjh8STY/sg7A==",
+        "dependencies": {
+          "System.Drawing.Common": "8.0.0"
+        }
+      },
+      "H.NotifyIcon": {
+        "type": "Transitive",
+        "resolved": "2.0.131",
+        "contentHash": "mdznQAfcJFehblFoDUvtmdm1Y9+u1eMN1ffORbdYv5EwreMxkCwvdj8qQn3qnUo9EIJ6h5Xdgqey9Nj4us8w7w==",
+        "dependencies": {
+          "H.GeneratedIcons.System.Drawing": "2.0.131"
+        }
+      },
+      "HidSharp": {
+        "type": "Transitive",
+        "resolved": "2.1.0",
+        "contentHash": "UTdxWvbgp2xzT1Ajaa2va+Qi3oNHJPasYmVhbKI2VVdu1VYP6yUG+RikhsHvpD7iM0S8e8UYb5Qm/LTWxx9QAA=="
+      },
+      "Microsoft.Xaml.Behaviors.Wpf": {
+        "type": "Transitive",
+        "resolved": "1.1.31",
+        "contentHash": "LZpuf82ACZWldmfMuv3CTUMDh3o0xo0uHUaybR5HgqVLDBJJ9RZLykplQ/bTJd0/VDt3EhD4iDgUgbdIUAM+Kg=="
+      },
+      "PixiEditor.ColorPicker": {
+        "type": "Transitive",
+        "resolved": "3.4.1",
+        "contentHash": "n7T1+ZN28Nfy9OoAJB0NpxCFZTBNjlm+EXKnVVLTIaiHTaeJTxwgt52uAf4jL17ynDP2vbqdneMCUmjAFHH+HA==",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.31"
+        }
+      },
+      "System.Drawing.Common": {
+        "type": "Transitive",
+        "resolved": "8.0.0",
+        "contentHash": "JkbHJjtI/dWc5dfmEdJlbe3VwgZqCkZRtfuWFh5GOv0f+gGCfBtzMpIVkmdkj2AObO9y+oiOi81UGwH3aBYuqA=="
+      },
+      "systemtraymenu": {
+        "type": "Project",
+        "dependencies": {
+          "H.NotifyIcon": "[2.0.131, )",
+          "HidSharp": "[2.1.0, )",
+          "PixiEditor.ColorPicker": "[3.4.1, )"
+        }
+      }
+    },
+    "UAP,Version=v10.0.17763/win10-arm": {},
+    "UAP,Version=v10.0.17763/win10-arm-aot": {},
+    "UAP,Version=v10.0.17763/win10-arm64-aot": {},
+    "UAP,Version=v10.0.17763/win10-x64": {},
+    "UAP,Version=v10.0.17763/win10-x64-aot": {},
+    "UAP,Version=v10.0.17763/win10-x86": {},
+    "UAP,Version=v10.0.17763/win10-x86-aot": {}
+  }
+}

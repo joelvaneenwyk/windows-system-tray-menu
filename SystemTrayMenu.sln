@@ -2,11 +2,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemTrayMenu", "Source/SystemTrayMenu.csproj", "{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemTrayMenu", "Source\SystemTrayMenu.csproj", "{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Packaging", "Packaging/Packaging.wapproj", "{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Packaging", "Packaging\Packaging.wapproj", "{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9FDF44D5-4BB3-47B6-AB52-5CA337966C85} = {9FDF44D5-4BB3-47B6-AB52-5CA337966C85}
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D34D9392-6592-4F44-B8D4-1781502FE7E6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D9392-6592-4F44-B8D4-1781502FE7E6}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
@@ -53,45 +56,6 @@ Global
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
 		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Deploy.0 = ReleasePackage|x64
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {ECA870FE-709A-4EC0-9F28-206977283A13}
-	EndGlobalSection
-EndGlobal
-4.ActiveCfg = Debug|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x64.Build.0 = Debug|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x86.ActiveCfg = Debug|x86
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x86.Build.0 = Debug|x86
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x64.ActiveCfg = Release|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x64.Build.0 = Release|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x86.ActiveCfg = Release|x86
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x86.Build.0 = Release|x86
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|Any CPU.ActiveCfg = ReleasePackage|Any CPU
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|Any CPU.Build.0 = ReleasePackage|Any CPU
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x86.ActiveCfg = ReleasePackage|x86
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x86.Build.0 = ReleasePackage|x86
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.ActiveCfg = Debug|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x86.ActiveCfg = Debug|x86
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.ActiveCfg = Release|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x86.ActiveCfg = Release|x86
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|Any CPU.ActiveCfg = ReleasePackage|Any CPU
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|Any CPU.Build.0 = ReleasePackage|Any CPU
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|Any CPU.Deploy.0 = ReleasePackage|Any CPU
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Deploy.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x86.ActiveCfg = ReleasePackage|x86
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x86.Build.0 = ReleasePackage|x86
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x86.Deploy.0 = ReleasePackage|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

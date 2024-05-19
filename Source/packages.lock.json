@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "net6.0-windows7.0": {
+    "net7.0-windows7.0": {
       "H.NotifyIcon": {
         "type": "Direct",
         "requested": "[2.0.131, )",
@@ -25,12 +25,6 @@
         "dependencies": {
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.31"
         }
-      },
-      "StyleCop.Analyzers": {
-        "type": "Direct",
-        "requested": "[1.1.118, )",
-        "resolved": "1.1.118",
-        "contentHash": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw=="
       },
       "H.GeneratedIcons.System.Drawing": {
         "type": "Transitive",
@@ -57,13 +51,6 @@
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "8.0.0"
         }
-      }
-    },
-    "net6.0-windows7.0/win-x64": {
-      "Microsoft.Win32.SystemEvents": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw=="
       }
     }
   }
