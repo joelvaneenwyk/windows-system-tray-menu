@@ -14,9 +14,9 @@ jobs:
           dotnet-version: "9.0.x"
           dotnet-quality: "preview"
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore -c "Release" Source\SystemTrayMenu.csproj
       - name: Build
-        run: dotnet build
+        run: dotnet build -c "Release" Source\SystemTrayMenu.csproj
 #
 ####################################################
 #
