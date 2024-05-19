@@ -17,3 +17,61 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build
+#
+####################################################
+#
+# Backup of 'azure-pipelines.yml'
+#
+# trigger:
+#   - master
+#
+# pool:
+#   vmImage: "Windows-latest"
+#
+# variables:
+#   solution: "**/*.sln"
+#   buildPlatform: "Any CPU"
+#   buildConfiguration: "Release"
+#
+# steps:
+#   - task: NuGetToolInstaller@1
+#
+#   - task: UseDotNet@2
+#     inputs:
+#       packageType: sdk
+#       version: 6.0.x
+#
+#   - task: DotNetCoreCLI@2
+#     inputs:
+#       command: "restore"
+#       projects: "$(solution)"
+#       feedsToUse: "select"
+#
+#   - task: kherzog.AssemblyInfoReader.assembly-info-reader-build-task.AssembyInfoReader@2
+#     displayName: 'Generate variables **\AssemblyInfo.cs '
+#
+#   - task: MSBuild@1
+#     displayName: "MSBuild"
+#     inputs:
+#       solution: "**/*.sln"
+#       msbuildArguments: '-p:Configuration=Release -p:Platform="Any CPU"'
+#
+#   - task: ArchiveFiles@2
+#     displayName: "Archive $(Build.ArtifactStagingDirectory)"
+#     inputs:
+#       rootFolderOrFile: '$(Build.SourcesDirectory)\bin\AnyCPU\Release\net7.0-windows10.0.22000.0\publish\win-x64\'
+#       includeRootFolder: false
+#       archiveFile: "$(Build.ArtifactStagingDirectory)/SystemTrayMenu-$(AssemblyInfo.AssemblyVersion).zip"
+#
+#   - task: CopyFiles@2
+#     displayName: "Copy AssemblyInfo.cs to: $(build.artifactstagingdirectory)"
+#     inputs:
+#       SourceFolder: '$(Build.SourcesDirectory)\Properties'
+#       Contents: |
+#         AssemblyInfo.cs
+#       TargetFolder: "$(build.artifactstagingdirectory)"
+#
+#   - task: PublishBuildArtifacts@1
+#     displayName: "Publish Artifact: drop"
+#     inputs:
+#       PathtoPublish: "$(Build.ArtifactStagingDirectory)"

@@ -1,5 +1,51 @@
 <Project>
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+
+    <SolutionName>SystemTrayMenu.sln</SolutionName>
+    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/$(SolutionName)')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)))</ProjectRoot>
+    <ProjectRoot Condition="Exists('$(MSBuildProjectDirectory)/../$(SolutionName)')">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/../'))</ProjectRoot>
+
+    <ProjectRootPrefix Condition="HasTrailingSlash('$(ProjectRoot)')">$(ProjectRoot)</ProjectRootPrefix>
+    <ProjectRootPrefix Condition="!HasTrailingSlash('$(ProjectRoot)')">$(ProjectRoot)/</ProjectRootPrefix>
+
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(ProjectRoot)</SolutionDir>
+    <Deterministic>true</Deterministic>
+
+    <!-- For non-SDK projects that import this file and then import Microsoft.Common.props,
+           tell Microsoft.Common.props not to import Directory.Build.props again. -->
+    <ImportDirectoryBuildProps>true</ImportDirectoryBuildProps>
+
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <NoWarn>1701;1702;CA1051;CA2213;CA5392</NoWarn>
+
+    <OutputPath>$(ProjectRootPrefix)bin/$(Configuration)/</OutputPath>
+    <OutDir>$(OutputPath)/</OutDir>
+    <BaseIntermediateOutputPath>$(ProjectRootPrefix).build/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(BaseIntermediateOutputPath)</BaseOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)/$(Platform)/</IntermediateOutputPath>
+    <IntDir>$(BaseIntermediateOutputPath)$(Configuration)/$(Platform)/</IntDir>
+    <UseCommonOutputDirectory>false</UseCommonOutputDirectory>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+
+    <AnalysisMode>none</AnalysisMode>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <AnalysisMode>recommended</AnalysisMode>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <GeneratedMSBuildEditorConfigFile>$(IntermediateOutputPath)/$(MSBuildProjectName).GeneratedMSBuildEditorConfig.editorconfig</GeneratedMSBuildEditorConfigFile>
+
     <Deterministic>true</Deterministic>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>

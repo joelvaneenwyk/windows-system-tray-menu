@@ -9,8 +9,8 @@
 		<Platforms>x64</Platforms>
 		<Configurations>Debug;Release;ReleasePackage</Configurations>
 		<OutputType>WinExe</OutputType>
-		<OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
-		<PublishUrl>publish\</PublishUrl>
+		<OutputPath>bin/$(Platform)/$(Configuration)/</OutputPath>
+		<PublishUrl>publish/</PublishUrl>
 		<Install>true</Install>
 		<InstallFrom>Disk</InstallFrom>
 		<UpdateEnabled>false</UpdateEnabled>
@@ -34,8 +34,8 @@
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<StartupObject>SystemTrayMenu.Program</StartupObject>
-		<ApplicationManifest>Resources\app.manifest</ApplicationManifest>
-		<ApplicationIcon>Resources\SystemTrayMenu.ico</ApplicationIcon>
+		<ApplicationManifest>Resources/app.manifest</ApplicationManifest>
+		<ApplicationIcon>Resources/SystemTrayMenu.ico</ApplicationIcon>
 		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
 		<NoWarn>1701;1702;WFAC010;MSB3061</NoWarn>
 		<AnalysisLevel>latest-minimum</AnalysisLevel>
@@ -46,48 +46,35 @@
 		<DebugSymbols>true</DebugSymbols>
 		<Optimize>True</Optimize>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x64'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x86'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|AnyCPU'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
 	<ItemGroup>
-		<Compile Remove="build\**" />
-		<Compile Remove="Packaging\**" />
-		<EmbeddedResource Remove="build\**" />
-		<EmbeddedResource Remove="Packaging\**" />
-		<None Remove="build\**" />
-		<None Remove="Packaging\**" />
-		<Page Remove="build\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Remove="obj\**" />
-		<EmbeddedResource Remove="obj\**" />
-		<None Remove="obj\**" />
-		<Page Remove="obj\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Remove="bin\**" />
-		<EmbeddedResource Remove="bin\**" />
-		<None Remove="bin\**" />
-		<Page Remove="bin\**" />
-		<Page Remove="Packaging\**" />
+		<Compile Remove="build/**" />
+		<Compile Remove="Packaging/**" />
+		<EmbeddedResource Remove="build/**" />
+		<EmbeddedResource Remove="Packaging/**" />
+		<None Remove="build/**" />
+		<None Remove="Packaging/**" />
+		<Page Remove="build/**" />
+		<Compile Remove="obj/**" />
+		<EmbeddedResource Remove="obj/**" />
+		<None Remove="obj/**" />
+		<Page Remove="obj/**" />
+		<Compile Remove="bin/**" />
+		<EmbeddedResource Remove="bin/**" />
+		<None Remove="bin/**" />
+		<Page Remove="bin/**" />
+		<Page Remove="Packaging/**" />
 	</ItemGroup>
 	<!-- Files -->
 	<ItemGroup>
-		<ApplicationDefinition Include="Business\App.xaml" />
-		<EmbeddedResource Remove="UserInterface\Menu.resx" />
-		<Resource Include="Resources\SystemTrayMenu.ico" />
-		<Resource Include="Resources\SystemTrayMenu.png" />
-		<Resource Include="Resources\LinkArrow.ico" />
-		<Resource Include="Resources\Loading.ico" />
-		<Resource Include="Resources\HowToOpenSettings.png" />
-		<Resource Include="Resources\NotFound.ico" />
-		<Compile Update="Properties\Settings.Designer.cs">
+		<ApplicationDefinition Include="Business/App.xaml" />
+		<EmbeddedResource Remove="UserInterface/Menu.resx" />
+		<Resource Include="Resources/SystemTrayMenu.ico" />
+		<Resource Include="Resources/SystemTrayMenu.png" />
+		<Resource Include="Resources/LinkArrow.ico" />
+		<Resource Include="Resources/Loading.ico" />
+		<Resource Include="Resources/HowToOpenSettings.png" />
+		<Resource Include="Resources/NotFound.ico" />
+		<Compile Update="Properties/Settings.Designer.cs">
 			<DesignTimeSharedInput>True</DesignTimeSharedInput>
 			<AutoGen>True</AutoGen>
 			<DependentUpon>Settings.settings</DependentUpon>
@@ -95,13 +82,13 @@
 		<None Update="Package.appxmanifest">
 			<SubType>Designer</SubType>
 		</None>
-		<None Update="Properties\Settings.settings">
+		<None Update="Properties/Settings.settings">
 			<Generator>SettingsSingleFileGenerator</Generator>
 			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
 		</None>
 		<None Update="../README.md">
 			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
+			<PackagePath>/</PackagePath>
 		</None>
 	</ItemGroup>
 	<ItemGroup>
