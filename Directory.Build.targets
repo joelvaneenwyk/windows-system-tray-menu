@@ -1,38 +1,49 @@
 <Project>
   <PropertyGroup>
     <!-- Disable IsTrimmable if explicitly enabled or else we'll get NETSDK1195 and NETSDK1210 errors -->
+
+    <!--
     <IsTrimmable Condition="'$(TargetFramework)' != '$(DefaultNetCoreTargetFramework)'"></IsTrimmable>
     <EnableAOTAnalyzer Condition=" '$(EnableAOTAnalyzer)' == '' ">$([MSBuild]::ValueOrDefault($(IsTrimmable),'false'))</EnableAOTAnalyzer>
     <EnableSingleFileAnalyzer Condition=" '$(EnableSingleFileAnalyzer)' == '' ">$(EnableAOTAnalyzer)</EnableSingleFileAnalyzer>
+    -->
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(CopySymbolsToArtifacts)' == 'true' AND '$(TargetFramework)' != '' ">
-    <BuildDependsOn>$(BuildDependsOn);_CopySymbolsToArtifacts</BuildDependsOn>
-  </PropertyGroup>
+  <!--
+<PropertyGroup Condition=" '$(CopySymbolsToArtifacts)' == 'true' AND '$(TargetFramework)' != '' ">
+  <BuildDependsOn>$(BuildDependsOn);_CopySymbolsToArtifacts</BuildDependsOn>
+</PropertyGroup>
+    -->
 
-  <!-- Properties for Package Validation -->
-  <PropertyGroup Condition="'$(ExcludeFromSourceOnlyBuild)' != 'true'">
-    <EnablePackageValidation Condition="'$(EnablePackageValidation)' == ''">true</EnablePackageValidation>
-    <DisablePackageBaselineValidation Condition="'$(IsServicingBuild)' != 'true'">true</DisablePackageBaselineValidation>
-    <GenerateCompatibilitySuppressionFile>true</GenerateCompatibilitySuppressionFile>
-  </PropertyGroup>
+<!-- Properties for Package Validation -->
+  <!--
+<PropertyGroup Condition="'$(ExcludeFromSourceOnlyBuild)' != 'true'">
+  <EnablePackageValidation Condition="'$(EnablePackageValidation)' == ''">true</EnablePackageValidation>
+  <DisablePackageBaselineValidation Condition="'$(IsServicingBuild)' != 'true'">true</DisablePackageBaselineValidation>
+  <GenerateCompatibilitySuppressionFile>true</GenerateCompatibilitySuppressionFile>
+</PropertyGroup>
+    -->
 
-  <Target Name="_CopySymbolsToArtifacts">
-    <Copy SourceFiles="$([System.IO.Path]::ChangeExtension('$(TargetPath)', 'pdb'))"
-        DestinationFolder="$(SymbolsOutputPath)$(TargetFramework)"
-        OverwriteReadOnlyFiles="$(OverwriteReadOnlyFiles)"
-        Retries="$(CopyRetryCount)"
-        RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"
-        SkipUnchangedFiles="$(SkipCopyUnchangedFiles)" />
-  </Target>
+  <!--
+<Target Name="_CopySymbolsToArtifacts">
+  <Copy SourceFiles="$([System.IO.Path]::ChangeExtension('$(TargetPath)', 'pdb'))"
+      DestinationFolder="$(SymbolsOutputPath)$(TargetFramework)"
+      OverwriteReadOnlyFiles="$(OverwriteReadOnlyFiles)"
+      Retries="$(CopyRetryCount)"
+      RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"
+      SkipUnchangedFiles="$(SkipCopyUnchangedFiles)" />
+</Target>
+    -->
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x64'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x86'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|AnyCPU'">
-		<Optimize>True</Optimize>
-	</PropertyGroup>
+  <!--
+<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x64'">
+  <Optimize>True</Optimize>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|x86'">
+  <Optimize>True</Optimize>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='ReleasePackage|net7.0-windows|AnyCPU'">
+  <Optimize>True</Optimize>
+</PropertyGroup>
+    -->
 </Project>
