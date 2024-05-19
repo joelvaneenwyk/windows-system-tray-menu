@@ -8,6 +8,12 @@ indent_style = tab
 
 [*.cs]
 
+dotnet_diagnostic.IDE0008.severity = none
+dotnet_diagnostic.IDE0051.severity = none
+dotnet_diagnostic.IDE0055.severity = none
+dotnet_diagnostic.IDE0060.severity = none
+dotnet_diagnostic.IDE0044.severity = none
+
 # WFAC010: Unsupported high DPI configuration
 dotnet_diagnostic.WFAC010.severity = silent
 csharp_indent_labels = one_less_than_current
