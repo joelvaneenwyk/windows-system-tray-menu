@@ -7,18 +7,17 @@ namespace SystemTrayMenu
     using System;
     using System.Drawing;
     using System.IO;
-    using System.Windows;
     using System.Windows.Threading;
-    using SystemTrayMenu.Business;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Helpers.Updater;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.Utilities;
+    using Business;
+    using Helpers;
+    using Helpers.Updater;
+    using Properties;
+    using Utilities;
 
     /// <summary>
     /// App contains the notifyicon, the taskbarform and the menus.
     /// </summary>
-    public partial class App : Application, IDisposable
+    public partial class App : IDisposable
     {
         private Menus? menus;
         private JoystickHelper? joystickHelper;

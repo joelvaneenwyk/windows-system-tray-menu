@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "net7.0-windows7.0": {
+    "net8.0-windows7.0": {
       "H.NotifyIcon": {
         "type": "Direct",
         "requested": "[2.0.131, )",
@@ -59,7 +59,7 @@
         }
       }
     },
-    "net7.0-windows7.0/win-x64": {
+    "net8.0-windows7.0/win-x64": {
       "Microsoft.Win32.SystemEvents": {
         "type": "Transitive",
         "resolved": "8.0.0",

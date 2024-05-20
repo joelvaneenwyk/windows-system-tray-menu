@@ -4,7 +4,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemTrayMenu", "Source\SystemTrayMenu.csproj", "{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Packaging", "Packaging\Packaging.wapproj", "{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Packaging", "Packaging\Packaging.wapproj", "{D718BB23-BE52-4A20-8C9F-357C06859AD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D9392-6592-4F44-B8D4-1781502FE7E6}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,34 +13,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D93
 		.stylecop.json = .stylecop.json
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
-		LICENSE = LICENSE
-		README.md = README.md
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Release|x64 = Release|x64
-		ReleasePackage|x64 = ReleasePackage|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.Build.0 = Debug|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.Deploy.0 = Debug|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.Build.0 = Release|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.Deploy.0 = Release|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x64.ActiveCfg = Debug|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Debug|x64.Build.0 = Debug|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x64.ActiveCfg = Release|x64
 		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.Release|x64.Build.0 = Release|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
-		{F317AF2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.ActiveCfg = Debug|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.ActiveCfg = Release|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Deploy.0 = ReleasePackage|x64
+		{D718BB23-BE52-4A20-8C9F-357C06859AD4}.Debug|x64.ActiveCfg = Debug|x64
+		{D718BB23-BE52-4A20-8C9F-357C06859AD4}.Debug|x64.Build.0 = Debug|x64
+		{D718BB23-BE52-4A20-8C9F-357C06859AD4}.Release|x64.ActiveCfg = Release|x64
+		{D718BB23-BE52-4A20-8C9F-357C06859AD4}.Release|x64.Build.0 = Release|x64
+		{D718BB23-BE52-4A20-8C9F-357C06859AD4}.Release|x64.Deploy.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,17 +42,3 @@ Global
 		SolutionGuid = {ECA870FE-709A-4EC0-9F28-206977283A13}
 	EndGlobalSection
 EndGlobal
-F2E-9704-4A2A-BDAE-B4662ED9483B}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Debug|x64.ActiveCfg = Debug|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.Release|x64.ActiveCfg = Release|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.ActiveCfg = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Build.0 = ReleasePackage|x64
-		{01D77F37-786A-4DC4-A1AD-BC1EEC54EAE3}.ReleasePackage|x64.Deploy.0 = ReleasePackage|x64
-	Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {ECA870FE-709A-4EC0-9F28-206977283A13}
-	EndGlobalSection
-	EndGlobal

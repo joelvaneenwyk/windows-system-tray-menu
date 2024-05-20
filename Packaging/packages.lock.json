@@ -1,13 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "UAP,Version=v10.0.17763": {
-      "Microsoft.Windows.SDK.BuildTools": {
-        "type": "Direct",
-        "requested": "[10.0.22000.194, 10.0.22000.194]",
-        "resolved": "10.0.22000.194",
-        "contentHash": "4L0P3zqut466SIqT3VBeLTNUQTxCBDOrTRymRuROCRJKazcK7ibLz9yAO1nKWRt50ttCj39oAa2Iuz9ZTDmLlg=="
-      },
+    "UAP,Version=v10.0.22000": {
       "H.GeneratedIcons.System.Drawing": {
         "type": "Transitive",
         "resolved": "2.0.131",
@@ -62,6 +56,6 @@
         }
       }
     },
-    "UAP,Version=v10.0.17763/win-x64": {}
+    "UAP,Version=v10.0.22000/win-x64": {}
   }
 }

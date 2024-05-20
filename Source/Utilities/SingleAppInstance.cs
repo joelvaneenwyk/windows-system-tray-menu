@@ -13,7 +13,7 @@ namespace SystemTrayMenu.Utilities
     {
         private const string IpcServiceName = nameof(SingleAppInstance);
         private const string IpcWakeupCmd = "wakeup";
-        private const string IpcWakeupResponseOK = "OK";
+        private const string IpcWakeupResponseOk = "OK";
         private static IpcPipe? ipcPipe;
 
         internal static event Action? Wakeup;
@@ -36,7 +36,7 @@ namespace SystemTrayMenu.Utilities
                             string pipeName = IpcServiceName + "-" + p.Id.ToString();
                             ipcPipe = new(1, pipeName);
                             string response = ipcPipe.SendToServer(IpcWakeupCmd) ?? string.Empty;
-                            if (!string.Equals(response, IpcWakeupResponseOK))
+                            if (!string.Equals(response, IpcWakeupResponseOk))
                             {
                                 throw new Exception("Error at IPC pipe \"" + pipeName + "\": \"" + response + "\"");
                             }
@@ -78,7 +78,7 @@ namespace SystemTrayMenu.Utilities
                     if (string.Equals(request, IpcWakeupCmd))
                     {
                         Wakeup?.Invoke();
-                        return IpcWakeupResponseOK;
+                        return IpcWakeupResponseOk;
                     }
 
                     return string.Empty;

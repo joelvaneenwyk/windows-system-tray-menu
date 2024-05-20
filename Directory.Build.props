@@ -33,7 +33,7 @@
     <WarningLevel>9999</WarningLevel>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <NoWarn>1701;1702;CA1051;CA2213;CA5392;CA1416;CA1861;CA2020;CA2263;IDE0051;IDE0060;CA1822;CA1806;CA1862;CA2020;
-      CS1998;CS0649;CS1591</NoWarn>
+      CS1998;CS0649;CS1591;NU1701;SYSLIB0050;NU1503</NoWarn>
 
     <OutputPath>$(ProjectRootPrefix)Bin/$(Configuration)/</OutputPath>
     <OutDir>$(OutputPath)/</OutDir>
