@@ -2,6 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using JetBrains.Annotations;
+
 namespace SystemTrayMenu
 {
     using System;
@@ -9,12 +11,13 @@ namespace SystemTrayMenu
     using System.Windows;
     using SystemTrayMenu.Utilities;
 
-    internal static class Program
+    [PublicAPI]
+    public static class Program
     {
         private static bool isStartup = true;
 
         [STAThread]
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             try
             {
@@ -24,26 +27,26 @@ namespace SystemTrayMenu
                 Config.LoadOrSetByUser();
                 Config.Initialize();
                 PrivilegeChecker.Initialize();
-
+        
                 // Without a valid path we cannot do anything, just close application
                 if (string.IsNullOrEmpty(Config.Path))
                 {
                     MessageBox.Show(
-                        Translator.GetText("Your root directory for the app does not exist or is empty! Change the root directory or put some files, directories or shortcuts into the root directory."),
+                        Translator.GetText("Your root directory for the app does not exist or is empty! Change the root directory or put some files, directories or shortcuts into the /root /directory."),
                         "SystemTrayMenu",
                         MessageBoxButton.OK);
                     return;
                 }
-
+        
                 if (SingleAppInstance.Initialize())
                 {
                     AppDomain currentDomain = AppDomain.CurrentDomain;
                     currentDomain.UnhandledException += (sender, args)
                         => AskUserSendError((Exception)args.ExceptionObject);
-
+        
                     Scaling.Initialize();
                     FolderOptions.Initialize();
-
+        
                     using App app = new ();
                     isStartup = false;
                     Log.WriteApplicationRuns();
@@ -59,11 +62,11 @@ namespace SystemTrayMenu
                 SingleAppInstance.Unload();
                 Log.Close();
             }
-
+        
             static void AskUserSendError(Exception ex)
             {
                 Log.Error("Application Crashed", ex);
-
+        
                 MessageBoxResult dialogResult = MessageBox.Show(
                     "A problem has been encountered and SystemTrayMenu needs to restart. " +
                     "Reporting this error will help us making our product better." +
@@ -77,7 +80,7 @@ namespace SystemTrayMenu
                     "Pressing 'Cancel' will quit the application.",
                     "SystemTrayMenu Crashed",
                     MessageBoxButton.YesNoCancel);
-
+        
                 if (dialogResult == MessageBoxResult.Yes)
                 {
                     Version? version = Assembly.GetEntryAssembly()?.GetName().Version;
@@ -86,7 +89,7 @@ namespace SystemTrayMenu
                         (version != null ? version.ToString() : string.Empty) +
                         "&body=" + ex.ToString());
                 }
-
+        
                 if (!isStartup && dialogResult != MessageBoxResult.Cancel)
                 {
                     AppRestart.ByThreadException();

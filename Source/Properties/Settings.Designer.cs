@@ -1583,7 +1583,7 @@ namespace SystemTrayMenu.Properties
                 this["ColorScrollbarBackgroundDarkMode"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(CustomSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

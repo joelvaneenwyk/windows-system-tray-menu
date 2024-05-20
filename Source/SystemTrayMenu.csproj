@@ -1,55 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 	<!-- Global project settings -->
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-windows</TargetFrameworks>
-		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<TargetFrameworks>net8.0-windows$(TargetPlatformVersion)</TargetFrameworks>
 		<OutputType>WinExe</OutputType>
 		<UseWPF>true</UseWPF>
+		<EnableMsixTooling>true</EnableMsixTooling>
+		<UseWinUI>true</UseWinUI>
 		<Nullable>enable</Nullable>
-		<Install>true</Install>
-		<InstallFrom>Disk</InstallFrom>
-		<UpdateEnabled>false</UpdateEnabled>
-		<UpdateMode>Foreground</UpdateMode>
-		<UpdateInterval>7</UpdateInterval>
-		<UpdateIntervalUnits>Days</UpdateIntervalUnits>
-		<UpdatePeriodically>false</UpdatePeriodically>
-		<UpdateRequired>false</UpdateRequired>
-		<MapFileExtensions>true</MapFileExtensions>
-		<ApplicationRevision>0</ApplicationRevision>
-		<ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-		<UseApplicationTrust>true</UseApplicationTrust>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<RepositoryUrl>https://github.com/joelvaneenwyk/SystemTrayMenu</RepositoryUrl>
-		<PackageIcon>Resources/SystemTrayMenu.png</PackageIcon>
-		<PackageProjectUrl>https://joelvaneenwyk.github.io/windows-system-tray-menu/</PackageProjectUrl>
-		<PackageLicenseFile>$(ProjectDir)/../LICENSE</PackageLicenseFile>
-		<PackageTags>SystemTrayMenu</PackageTags>
-		<PackageReadmeFile>$(ProjectDir)/../README.md</PackageReadmeFile>
-		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-		<EnableNETAnalyzers>True</EnableNETAnalyzers>
-		<StartupObject>SystemTrayMenu.Program</StartupObject>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<UseRidGraph>true</UseRidGraph>
+		<Nullable>enable</Nullable>
 		<ApplicationManifest>Resources/app.manifest</ApplicationManifest>
 		<ApplicationIcon>Resources/SystemTrayMenu.ico</ApplicationIcon>
-		<AnalysisLevel>latest-minimum</AnalysisLevel>
-		<Configurations>Debug;Release</Configurations>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+		<StartupObject>SystemTrayMenu.App</StartupObject>
 	</PropertyGroup>
 	<ItemGroup>
 		<Compile Remove="bin/**" />
 		<Compile Remove="build/**" />
 		<Compile Remove="obj/**" />
-		<Compile Remove="Packaging/**" />
 		<EmbeddedResource Remove="bin/**" />
 		<EmbeddedResource Remove="build/**" />
 		<EmbeddedResource Remove="obj/**" />
-		<EmbeddedResource Remove="Packaging/**" />
 		<None Remove="bin/**" />
 		<None Remove="build/**" />
 		<None Remove="obj/**" />
-		<None Remove="Packaging/**" />
 		<Page Remove="bin/**" />
 		<Page Remove="build/**" />
 		<Page Remove="obj/**" />
-		<Page Remove="Packaging/**" />
 	</ItemGroup>
 	<ItemGroup>
 		<ApplicationDefinition Include="Business/App.xaml" />
@@ -75,7 +54,6 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<FrameworkReference Update="Microsoft.WindowsDesktop.App.WPF" TargetingPackVersion="8.0.0" />
 		<PackageReference Include="H.NotifyIcon" Version="2.0.131" />
 		<PackageReference Include="HidSharp" Version="2.1.0" />
 		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
