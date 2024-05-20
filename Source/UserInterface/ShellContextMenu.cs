@@ -13,8 +13,6 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows.Input;
     using System.Windows.Interop;
 
-    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:Do not use regions", Justification = "Mark SystemTrayMenu modifications made to original source.")]
-
     /// <summary>
     /// source: https://www.codeproject.com/Articles/22012/Explorer-Shell-Context-Menu
     /// modified to fit SystemTrayMenu.
@@ -43,6 +41,7 @@ namespace SystemTrayMenu.UserInterface
     ///    files[0] = new FileInfo(@"c:\windows\notepad.exe");
     ///    scm.ShowContextMenu(this.Handle, files, Cursor.Position);.
     /// </example>
+    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:Do not use regions", Justification = "Mark SystemTrayMenu modifications made to original source.")]
     public class ShellContextMenu : HwndSource
     {
         private const int MaxPath = 260;
@@ -1013,6 +1012,7 @@ namespace SystemTrayMenu.UserInterface
         /// <summary>Gets the interfaces to the context menu.</summary>
         /// <param name="oParentFolder">Parent folder.</param>
         /// <param name="arrPIDLs">PIDLs.</param>
+        /// <param name="ctxMenuPtr">Context menu.</param>
         /// <returns>true if it got the interfaces, otherwise false.</returns>
         [MemberNotNullWhen(true, nameof(oContextMenu))]
         private bool GetContextMenuInterfaces(IShellFolder oParentFolder, IntPtr[] arrPIDLs, out IntPtr ctxMenuPtr)

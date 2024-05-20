@@ -9,12 +9,12 @@ namespace SystemTrayMenu.Utilities
     using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
-    using System.Reflection;
     using System.Threading;
     using System.Windows;
+    using File = System.IO.File;
     // using Clearcove.Logging;
     // using IWshRuntimeLibrary;
-    using File = System.IO.File;
+    // using System.Reflection;
 
     internal static class Log
     {

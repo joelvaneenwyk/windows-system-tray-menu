@@ -6,9 +6,10 @@ namespace SystemTrayMenu.Utilities
 {
     using System;
     using System.IO;
-    using System.Reflection;
-    using System.Runtime.InteropServices;
+
     // #todo #joelvaneenwyk
+    // using System.Reflection;
+    // using System.Runtime.InteropServices;
     // using Shell32;
 
     internal static class FolderOptions

@@ -137,7 +137,7 @@ namespace SystemTrayMenu.Properties
             // itterate thought the properties we get from the designer, checking to see if the setting is in the dictionary
             foreach (SettingsProperty setting in collection)
             {
-                SettingsPropertyValue value = new(setting)
+                SettingsPropertyValue propertyValue = new(setting)
                 {
                     IsDirty = false,
                 };
@@ -149,19 +149,19 @@ namespace SystemTrayMenu.Properties
                     Type? t = Type.GetType(typename);
                     if (t != null)
                     {
-                        if (SettingsDictionary.ContainsKey(setting.Name))
+                        if (SettingsDictionary.TryGetValue(setting.Name, out SettingStruct value))
                         {
-                            value.SerializedValue = SettingsDictionary[setting.Name].Value;
-                            value.PropertyValue = Convert.ChangeType(SettingsDictionary[setting.Name].Value, t, CultureInfo.InvariantCulture);
+                            propertyValue.SerializedValue = value.Value;
+                            propertyValue.PropertyValue = Convert.ChangeType(value.Value, t, CultureInfo.InvariantCulture);
                         }
                         else
                         {
                             // use defaults in the case where there are no settings yet
-                            value.SerializedValue = setting.DefaultValue;
-                            value.PropertyValue = Convert.ChangeType(setting.DefaultValue, t, CultureInfo.InvariantCulture);
+                            propertyValue.SerializedValue = setting.DefaultValue;
+                            propertyValue.PropertyValue = Convert.ChangeType(setting.DefaultValue, t, CultureInfo.InvariantCulture);
                         }
 
-                        values.Add(value);
+                        values.Add(propertyValue);
                     }
                 }
             }
@@ -186,11 +186,7 @@ namespace SystemTrayMenu.Properties
                     SerializeAs = value.Property.SerializeAs.ToString(),
                 };
 
-                if (!SettingsDictionary.ContainsKey(value.Name))
-                {
-                    SettingsDictionary.Add(value.Name, setting);
-                }
-                else
+                if (!SettingsDictionary.TryAdd(value.Name, setting))
                 {
                     SettingsDictionary[value.Name] = setting;
                 }

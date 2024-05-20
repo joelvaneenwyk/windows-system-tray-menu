@@ -59,7 +59,7 @@ namespace SystemTrayMenu.DataClasses
                 ResolvedPath = Path;
                 if (string.IsNullOrEmpty(FileInfo.Name))
                 {
-                    int nameBegin = FileInfo.FullName.LastIndexOf(@"\", StringComparison.InvariantCulture) + 1;
+                    int nameBegin = FileInfo.FullName.LastIndexOf('\\') + 1;
                     ColumnText = FileInfo.FullName[nameBegin..];
                 }
                 else if (FileExtension.Equals(".url", StringComparison.InvariantCultureIgnoreCase) ||
