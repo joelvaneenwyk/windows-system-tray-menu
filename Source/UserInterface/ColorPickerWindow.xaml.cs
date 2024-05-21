@@ -9,6 +9,7 @@ namespace SystemTrayMenu.UserInterface
     using System;
     using System.Windows;
     using System.Windows.Media;
+    using Config;
 
     /// <summary>
     /// Logic of ColorPickerWindow.xaml .

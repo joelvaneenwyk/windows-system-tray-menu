@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace SystemTrayMenu.Utilities
+namespace SystemTrayMenu.Utilities.File
 {
     using System;
     using System.IO;

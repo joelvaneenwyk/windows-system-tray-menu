@@ -10,6 +10,7 @@ namespace SystemTrayMenu.Helpers
     using System.Text;
     using System.Threading;
     using System.Windows;
+    using Config;
     using UserInterface;
     using Utilities;
 
@@ -17,13 +18,11 @@ namespace SystemTrayMenu.Helpers
     {
         public static void DragEnter(object sender, DragEventArgs e)
         {
-            object data = e.Data.GetData("UniformResourceLocator");
-
-            if (data is MemoryStream memoryStream)
+            if (e.Data.GetData("UniformResourceLocator") is MemoryStream memoryStream)
             {
                 byte[] bytes = memoryStream.ToArray();
-                Encoding encod = Encoding.ASCII;
-                string url = encod.GetString(bytes);
+                Encoding encoding = Encoding.ASCII;
+                string url = encoding.GetString(bytes);
                 if (!string.IsNullOrEmpty(url))
                 {
                     e.Effects = DragDropEffects.Copy;
@@ -34,21 +33,17 @@ namespace SystemTrayMenu.Helpers
         public static void DragDrop(object? sender, DragEventArgs e)
         {
             string path = ((Menu?)sender)?.RowDataParent?.ResolvedPath ?? Config.Path;
-            object data = e.Data.GetData("UniformResourceLocator");
-            if (data is not MemoryStream ms)
+            if (e.Data.GetData("UniformResourceLocator") is not MemoryStream ms)
             {
                 return;
             }
 
             byte[] bytes = ms.ToArray();
-            Encoding encod = Encoding.ASCII;
-            string url = encod.GetString(bytes);
+            Encoding encoding = Encoding.ASCII;
+            string url = encoding.GetString(bytes);
 
-            new Thread(CreateShortcutInBackground).Start();
-            void CreateShortcutInBackground()
-            {
-                CreateShortcut(url.Replace("\0", string.Empty), path);
-            }
+            Thread thread = new(() => CreateShortcut(url.Replace("\0", string.Empty), path));
+            thread.Start();
         }
 
         private static void CreateShortcut(string url, string pathToStoreFile)

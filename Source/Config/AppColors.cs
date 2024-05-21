@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace SystemTrayMenu
+namespace SystemTrayMenu.Config
 {
     using System.Windows.Media;
 
@@ -12,35 +12,35 @@ namespace SystemTrayMenu
 
         public static SolidColorBrush SelectedItem { get; internal set; } = new(Color.FromRgb(204, 232, 255));
 
-        public static SolidColorBrush DarkModeSelecetedItem { get; internal set; } = new (Color.FromRgb(51, 51, 51));
+        public static SolidColorBrush DarkModeSelecetedItem { get; internal set; } = new(Color.FromRgb(51, 51, 51));
 
-        public static SolidColorBrush SelectedItemBorder { get; internal set; } = new (Color.FromRgb(153, 209, 255));
+        public static SolidColorBrush SelectedItemBorder { get; internal set; } = new(Color.FromRgb(153, 209, 255));
 
-        public static SolidColorBrush DarkModeSelectedItemBorder { get; internal set; } = new (Color.FromRgb(20, 29, 75));
+        public static SolidColorBrush DarkModeSelectedItemBorder { get; internal set; } = new(Color.FromRgb(20, 29, 75));
 
-        public static SolidColorBrush OpenFolder { get; internal set; } = new (Color.FromRgb(194, 245, 222));
+        public static SolidColorBrush OpenFolder { get; internal set; } = new(Color.FromRgb(194, 245, 222));
 
-        public static SolidColorBrush DarkModeOpenFolder { get; internal set; } = new (Color.FromRgb(20, 65, 42));
+        public static SolidColorBrush DarkModeOpenFolder { get; internal set; } = new(Color.FromRgb(20, 65, 42));
 
-        public static SolidColorBrush OpenFolderBorder { get; internal set; } = new (Color.FromRgb(153, 255, 165));
+        public static SolidColorBrush OpenFolderBorder { get; internal set; } = new(Color.FromRgb(153, 255, 165));
 
-        public static SolidColorBrush DarkModeOpenFolderBorder { get; internal set; } = new (Color.FromRgb(20, 75, 85));
+        public static SolidColorBrush DarkModeOpenFolderBorder { get; internal set; } = new(Color.FromRgb(20, 75, 85));
 
-        public static SolidColorBrush Background { get; internal set; } = new (Color.FromRgb(255, 255, 255));
+        public static SolidColorBrush Background { get; internal set; } = new(Color.FromRgb(255, 255, 255));
 
-        public static SolidColorBrush DarkModeBackground { get; internal set; } = new (Color.FromRgb(32, 32, 32));
+        public static SolidColorBrush DarkModeBackground { get; internal set; } = new(Color.FromRgb(32, 32, 32));
 
-        public static SolidColorBrush BackgroundBorder { get; internal set; } = new (Color.FromRgb(0, 0, 0));
+        public static SolidColorBrush BackgroundBorder { get; internal set; } = new(Color.FromRgb(0, 0, 0));
 
-        public static SolidColorBrush DarkModeBackgroundBorder { get; internal set; } = new (Color.FromRgb(0, 0, 0));
+        public static SolidColorBrush DarkModeBackgroundBorder { get; internal set; } = new(Color.FromRgb(0, 0, 0));
 
-        public static SolidColorBrush SearchField { get; internal set; } = new (Color.FromRgb(255, 255, 255));
+        public static SolidColorBrush SearchField { get; internal set; } = new(Color.FromRgb(255, 255, 255));
 
-        public static SolidColorBrush DarkModeSearchField { get; internal set; } = new (Color.FromRgb(25, 25, 25));
+        public static SolidColorBrush DarkModeSearchField { get; internal set; } = new(Color.FromRgb(25, 25, 25));
 
-        public static SolidColorBrush Icons { get; internal set; } = new (Color.FromRgb(149, 160, 166));
+        public static SolidColorBrush Icons { get; internal set; } = new(Color.FromRgb(149, 160, 166));
 
-        public static SolidColorBrush DarkModeIcons { get; internal set; } = new (Color.FromRgb(149, 160, 166));
+        public static SolidColorBrush DarkModeIcons { get; internal set; } = new(Color.FromRgb(149, 160, 166));
 
         /* -- ScrollBar -- */
 

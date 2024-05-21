@@ -19,6 +19,7 @@ namespace SystemTrayMenu.UserInterface
     using DllImports;
     using Helpers;
     using Properties;
+    using Config;
     using Utilities;
 
     /// <summary>

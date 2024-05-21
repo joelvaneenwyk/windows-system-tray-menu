@@ -12,7 +12,7 @@ namespace SystemTrayMenu.Helpers.Updater
     using UserInterface;
     using Utilities;
 
-    public class GitHubUpdate
+    public static class GitHubUpdate
     {
         private static List<Dictionary<string, object>>? releases;
         private static UpdateWindow? newVersionWindow;

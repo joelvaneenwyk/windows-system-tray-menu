@@ -12,6 +12,7 @@ namespace SystemTrayMenu
     using Helpers;
     using Helpers.Updater;
     using Properties;
+    using Utilities.File;
     using Utilities;
 
     /// <summary>

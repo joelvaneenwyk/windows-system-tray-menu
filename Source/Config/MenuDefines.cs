@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace SystemTrayMenu
+namespace SystemTrayMenu.Config
 {
     using System.Windows.Media;
 

@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "{root}", "{root}", "{D34D93
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.stylecop.json = .stylecop.json
+		.vsconfig = .vsconfig
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		Directory.Build.props = Directory.Build.props

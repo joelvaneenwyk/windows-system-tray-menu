@@ -13,20 +13,20 @@ namespace SystemTrayMenu.UserInterface
     /// <summary>
     /// Logic of Taskbar window.
     /// </summary>
-    public partial class TaskbarLogo : Window
+    public partial class TaskbarLogo
     {
         public TaskbarLogo()
         {
             InitializeComponent();
 
-            Assembly myassembly = Assembly.GetExecutingAssembly();
-            string myname = myassembly.GetName().Name ?? string.Empty;
-            Title = myname;
+            Assembly executingAssembly = Assembly.GetExecutingAssembly();
+            string assemblyName = executingAssembly.GetName().Name ?? string.Empty;
 
+            Title = assemblyName;
             Closed += (_, _) => Application.Current.Shutdown();
 
             // Do final initialization after rendering has been finished for the first time.
-            // This ensures all icons and images are properly loaded and renderd (e.g. thumbnail image of alt tab menu).
+            // This ensures all icons and images are properly loaded and rendered (e.g. thumbnail image of alt tab menu).
             ContentRendered += LateInitialize;
         }
 
@@ -39,7 +39,7 @@ namespace SystemTrayMenu.UserInterface
             Top += SystemParameters.VirtualScreenHeight;
 
             // There is nothing to see, so no need to show this window.
-            // Therefore it shall always be in minimized state.
+            // Therefore, it shall always be in minimized state.
             // Further, we then can rely on every activating event.
             WindowState = WindowState.Minimized;
             StateChanged += (_, _) => WindowState = WindowState.Minimized;

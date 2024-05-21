@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:u="clr-namespace:SystemTrayMenu.Utilities"
-        xmlns:stm="clr-namespace:SystemTrayMenu"
+        xmlns:stm="clr-namespace:SystemTrayMenu.Config"
         x:Class="SystemTrayMenu.UserInterface.UpdateWindow"
         Style="{StaticResource {x:Type Window}}" mc:Ignorable="d" d:Background="{x:Static stm:MenuDefines.ColorBackground}"
         Title="{u:Translate 'New version available!'}" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" MinWidth="600" MaxHeight="600" WindowStyle="ToolWindow" ShowInTaskbar="False">

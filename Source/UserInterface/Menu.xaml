@@ -6,7 +6,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:stm="clr-namespace:SystemTrayMenu"
+        xmlns:stm="clr-namespace:SystemTrayMenu.Config"
         xmlns:u="clr-namespace:SystemTrayMenu.Utilities"
         xmlns:local="clr-namespace:SystemTrayMenu.UserInterface"
         x:Class="SystemTrayMenu.UserInterface.Menu"

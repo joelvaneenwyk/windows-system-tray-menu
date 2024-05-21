@@ -4,8 +4,10 @@
 
 namespace SystemTrayMenu.UserInterface.FolderBrowseDialog
 {
+    using JetBrains.Annotations;
     using System.Windows;
 
+    [PublicAPI]
     public interface IFolderDialog
     {
         string? InitialFolder { get; set; }

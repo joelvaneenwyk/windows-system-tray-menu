@@ -23,6 +23,8 @@ namespace SystemTrayMenu.Business
     using Utilities;
     using Menu = UserInterface.Menu;
     using StartLocation = UserInterface.Menu.StartLocation;
+    using Utilities.File;
+    using Config;
 
     internal class Menus : IDisposable
     {

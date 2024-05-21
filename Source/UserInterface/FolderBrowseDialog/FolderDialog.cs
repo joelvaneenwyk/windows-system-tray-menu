@@ -12,7 +12,7 @@ namespace SystemTrayMenu.UserInterface.FolderBrowseDialog
     using DllImports;
     using Utilities;
 
-    public class FolderDialog : IFolderDialog, IDisposable
+    public sealed class FolderDialog : IFolderDialog, IDisposable
     {
         private bool isDisposed;
 
@@ -119,7 +119,7 @@ namespace SystemTrayMenu.UserInterface.FolderBrowseDialog
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!isDisposed)
             {

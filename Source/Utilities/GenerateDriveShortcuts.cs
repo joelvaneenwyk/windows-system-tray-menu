@@ -8,6 +8,8 @@ namespace SystemTrayMenu.Utilities
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using Config;
+
     // #todo #joelvaneenwyk
     // using IWshRuntimeLibrary;
 
@@ -22,7 +24,7 @@ namespace SystemTrayMenu.Utilities
             {
                 driveNamesToRemove.Remove(driveInfo.Name[0]);
                 string linkPath = GetLinkPathFromDriveName(driveInfo.Name[..1]);
-                if (!File.Exists(linkPath))
+                if (!System.IO.File.Exists(linkPath))
                 {
                     CreateShortcut(linkPath, driveInfo.Name);
                 }
@@ -34,7 +36,7 @@ namespace SystemTrayMenu.Utilities
 
                 try
                 {
-                    File.Delete(possibleShortcut);
+                    System.IO.File.Delete(possibleShortcut);
                 }
                 catch (Exception ex)
                 {

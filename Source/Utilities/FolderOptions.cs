@@ -67,7 +67,7 @@ namespace SystemTrayMenu.Utilities
 
             try
             {
-                FileAttributes attributes = File.GetAttributes(path);
+                FileAttributes attributes = System.IO.File.GetAttributes(path);
                 hasHiddenFlag = attributes.HasFlag(FileAttributes.Hidden);
                 bool hasSystemFlag = attributes.HasFlag(
                     FileAttributes.Hidden | FileAttributes.System);

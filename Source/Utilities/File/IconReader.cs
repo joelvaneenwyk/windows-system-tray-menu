@@ -3,7 +3,7 @@
 // </copyright>
 // see also: https://www.codeproject.com/Articles/2532/Obtaining-and-managing-file-and-folder-icons-using.
 
-namespace SystemTrayMenu.Utilities
+namespace SystemTrayMenu.Utilities.File
 {
     using System;
     using System.Collections.Concurrent;
@@ -159,7 +159,7 @@ namespace SystemTrayMenu.Utilities
             bool largeIcon = false;
             uint flags = GetFlags(linkOverlay, largeIcon);
             uint attribute = NativeMethods.FileAttributeDirectory;
-            IntPtr imageList = NativeMethods.Shell32SHGetFileInfo(path, attribute, ref shFileInfo, (uint)Marshal.SizeOf(shFileInfo), flags);
+            nint imageList = NativeMethods.Shell32SHGetFileInfo(path, attribute, ref shFileInfo, (uint)Marshal.SizeOf(shFileInfo), flags);
             return TryGetIcon(path, linkOverlay, shFileInfo, imageList);
         }
 
@@ -248,7 +248,7 @@ namespace SystemTrayMenu.Utilities
                     Properties.Settings.Default.IconSizeInPercent / 100f >= 1.25f;
                 uint flags = GetFlags(linkOverlay, largeIcon);
                 uint attribute = isFolder ? NativeMethods.FileAttributeDirectory : NativeMethods.FileAttributeNormal;
-                IntPtr imageList = NativeMethods.Shell32SHGetFileInfo(path, attribute, ref shFileInfo, (uint)Marshal.SizeOf(shFileInfo), flags);
+                nint imageList = NativeMethods.Shell32SHGetFileInfo(path, attribute, ref shFileInfo, (uint)Marshal.SizeOf(shFileInfo), flags);
                 Icon? icon = TryGetIcon(path, linkOverlay, shFileInfo, imageList);
                 if (icon != null)
                 {
@@ -326,12 +326,12 @@ namespace SystemTrayMenu.Utilities
         }
 
         private static Icon? TryGetIcon(
-            string path, bool linkOverlay, NativeMethods.SHFILEINFO shFileInfo, IntPtr imageList)
+            string path, bool linkOverlay, NativeMethods.SHFILEINFO shFileInfo, nint imageList)
         {
             Icon? icon = null;
-            if (imageList != IntPtr.Zero)
+            if (imageList != nint.Zero)
             {
-                IntPtr hIcon;
+                nint hIcon;
                 if (linkOverlay)
                 {
                     hIcon = shFileInfo.hIcon;

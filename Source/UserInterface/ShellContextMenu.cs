@@ -2,6 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using JetBrains.Annotations;
+
 namespace SystemTrayMenu.UserInterface
 {
     using System;
@@ -21,7 +23,7 @@ namespace SystemTrayMenu.UserInterface
     ///
     /// It isn't really debugged but is mostly working.
     /// Create an instance and call ShowContextMenu with a list of FileInfo for the files.
-    /// Limitation is that it only handles files in the same directory but it can be fixed
+    /// Limitation is that it only handles files in the same directory, but it can be fixed
     /// by changing the way files are translated into PIDLs.
     ///
     /// Based on FileBrowser in C# from CodeProject
@@ -41,13 +43,17 @@ namespace SystemTrayMenu.UserInterface
     ///    files[0] = new FileInfo(@"c:\windows\notepad.exe");
     ///    scm.ShowContextMenu(this.Handle, files, Cursor.Position);.
     /// </example>
-    [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1124:Do not use regions", Justification = "Mark SystemTrayMenu modifications made to original source.")]
+    [SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules", 
+        "SA1124:Do not use regions", 
+        Justification = "Mark SystemTrayMenu modifications made to original source.")]
+    [PublicAPI]
     public class ShellContextMenu : HwndSource
     {
         private const int MaxPath = 260;
         private const uint CmdFirst = 1;
         private const uint CmdLast = 30000;
-        private const int ResultOK = 0;
+        private const int ResultOk = 0;
 
         private static readonly int CbMenuItemInfo = Marshal.SizeOf(typeof(MENUITEMINFO));
         private static readonly int CbInvokeCommand = Marshal.SizeOf(typeof(CMINVOKECOMMANDINFOEX));
@@ -67,7 +73,7 @@ namespace SystemTrayMenu.UserInterface
         private IntPtr[]? arrPIDLs;
         private string? strParentFolder;
 
-        public ShellContextMenu()
+        private ShellContextMenu()
                 : base(default)
         {
             hook = new HwndSourceHook(WndProc);
@@ -86,6 +92,7 @@ namespace SystemTrayMenu.UserInterface
         // Defines the values used with the IShellFolder::GetDisplayNameOf and IShellFolder::SetNameOf
         // methods to specify the type of file or folder names used by those methods
         [Flags]
+        [PublicAPI]
         private enum SHGNO
         {
             NORMAL = 0x0000,
@@ -97,6 +104,7 @@ namespace SystemTrayMenu.UserInterface
 
         // The attributes that the caller is requesting, when calling IShellFolder::GetAttributesOf
         [Flags]
+        [PublicAPI]
         private enum SFGAO : uint
         {
             BROWSABLE = 0x8000000,
@@ -889,7 +897,7 @@ namespace SystemTrayMenu.UserInterface
                  msg == (int)WM.DRAWITEM))
             {
                 if (oContextMenu2.HandleMenuMsg(
-                    (uint)msg, wParam, lParam) == ResultOK)
+                    (uint)msg, wParam, lParam) == ResultOk)
                 {
                     handled = true;
                     return IntPtr.Zero;
@@ -900,7 +908,7 @@ namespace SystemTrayMenu.UserInterface
                 msg == (int)WM.MENUCHAR)
             {
                 if (oContextMenu3.HandleMenuMsg2(
-                    (uint)msg, wParam, lParam, IntPtr.Zero) == ResultOK)
+                    (uint)msg, wParam, lParam, IntPtr.Zero) == ResultOk)
                 {
                     handled = true;
                     return IntPtr.Zero;
@@ -938,7 +946,7 @@ namespace SystemTrayMenu.UserInterface
                 SFGAO pdwAttributes = 0;
                 IntPtr pPIDL = IntPtr.Zero;
                 int nResult = oParentFolder.ParseDisplayName(IntPtr.Zero, IntPtr.Zero, fi.Name, ref pchEaten, out pPIDL, ref pdwAttributes);
-                if (nResult != ResultOK)
+                if (nResult != ResultOk)
                 {
                     FreePIDLs(arrPIDLs);
                     return null;
@@ -978,7 +986,7 @@ namespace SystemTrayMenu.UserInterface
                 SFGAO pdwAttributes = 0;
                 IntPtr pPIDL = IntPtr.Zero;
                 int nResult = oParentFolder.ParseDisplayName(IntPtr.Zero, IntPtr.Zero, fi.Name, ref pchEaten, out pPIDL, ref pdwAttributes);
-                if (nResult != ResultOK)
+                if (nResult != ResultOk)
                 {
                     FreePIDLs(arrPIDLs);
                     return null;
@@ -1025,7 +1033,7 @@ namespace SystemTrayMenu.UserInterface
                 IntPtr.Zero,
                 out ctxMenuPtr);
 
-            if (nResult == ResultOK)
+            if (nResult == ResultOk)
             {
                 oContextMenu = (IContextMenu)Marshal.GetTypedObjectForIUnknown(ctxMenuPtr, typeof(IContextMenu));
 
@@ -1102,7 +1110,7 @@ namespace SystemTrayMenu.UserInterface
             {
                 // Get desktop IShellFolder
                 int nResult = DllImports.NativeMethods.Shell32SHGetDesktopFolder(out IntPtr pUnkownDesktopFolder);
-                if (nResult != ResultOK)
+                if (nResult != ResultOk)
                 {
                     throw new COMException("Failed to get the desktop shell folder", nResult);
                 }
@@ -1132,7 +1140,7 @@ namespace SystemTrayMenu.UserInterface
                 uint pchEaten = 0;
                 SFGAO pdwAttributes = 0;
                 int nResult = oDesktopFolder.ParseDisplayName(IntPtr.Zero, IntPtr.Zero, folderName, ref pchEaten, out IntPtr pPIDL, ref pdwAttributes);
-                if (nResult != ResultOK)
+                if (nResult != ResultOk)
                 {
                     return null;
                 }
@@ -1150,7 +1158,7 @@ namespace SystemTrayMenu.UserInterface
 
                 // Free the PIDL first
                 Marshal.FreeCoTaskMem(pPIDL);
-                if (nResult != ResultOK)
+                if (nResult != ResultOk)
                 {
                     return null;
                 }

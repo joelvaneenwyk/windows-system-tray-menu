@@ -32,8 +32,8 @@ namespace SystemTrayMenu.Utilities
                 try
                 {
                     string fileNameToCheckWriteAccess = "CheckWriteAccess";
-                    File.WriteAllText(fileNameToCheckWriteAccess, fileNameToCheckWriteAccess);
-                    File.Delete(fileNameToCheckWriteAccess);
+                    System.IO.File.WriteAllText(fileNameToCheckWriteAccess, fileNameToCheckWriteAccess);
+                    System.IO.File.Delete(fileNameToCheckWriteAccess);
                 }
                 catch (Exception ex)
                 {
@@ -54,8 +54,8 @@ namespace SystemTrayMenu.Utilities
 
                 try
                 {
-                    File.Delete(fileNamePathLast);
-                    File.Move(fileNamePath, fileNamePathLast);
+                    System.IO.File.Delete(fileNamePathLast);
+                    System.IO.File.Move(fileNamePath, fileNamePathLast);
                 }
                 catch (Exception ex)
                 {
@@ -117,7 +117,7 @@ namespace SystemTrayMenu.Utilities
         internal static void OpenLogFile()
         {
             string lastLogfile = GetLogFilePath(LogfileLastExtension);
-            if (File.Exists(lastLogfile))
+            if (System.IO.File.Exists(lastLogfile))
             {
                 ProcessStart(lastLogfile);
             }
@@ -201,7 +201,7 @@ namespace SystemTrayMenu.Utilities
                 Warn($"fileName:'{fileName}' arguments:'{arguments}'", ex);
 
                 if ((ex.NativeErrorCode == 2 || ex.NativeErrorCode == 1223) &&
-                    (string.IsNullOrEmpty(resolvedPath) || !File.Exists(resolvedPath)))
+                    (string.IsNullOrEmpty(resolvedPath) || !System.IO.File.Exists(resolvedPath)))
                 {
                     new Thread(ShowProblemWithShortcut).Start();
                     static void ShowProblemWithShortcut()

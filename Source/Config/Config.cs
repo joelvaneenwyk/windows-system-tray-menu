@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace SystemTrayMenu
+namespace SystemTrayMenu.Config
 {
     using System;
     using System.IO;
@@ -14,6 +14,7 @@ namespace SystemTrayMenu
     using UserInterface.FolderBrowseDialog;
     using Utilities;
     using Icon = System.Drawing.Icon;
+    using Utilities.File;
 
     public static class Config
     {
@@ -65,7 +66,7 @@ namespace SystemTrayMenu
 
         public static Icon GetAppIcon()
         {
-            if (Settings.Default.UseIconFromRootFolder && (IconRootFolder != null))
+            if (Settings.Default.UseIconFromRootFolder && IconRootFolder != null)
             {
                 return IconRootFolder;
             }

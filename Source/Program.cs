@@ -22,13 +22,13 @@ namespace SystemTrayMenu
             {
                 Log.Initialize();
                 Translator.Initialize();
-                Config.SetFolderByWindowsContextMenu(args);
-                Config.LoadOrSetByUser();
-                Config.Initialize();
+                Config.Config.SetFolderByWindowsContextMenu(args);
+                Config.Config.LoadOrSetByUser();
+                Config.Config.Initialize();
                 PrivilegeChecker.Initialize();
         
                 // Without a valid path we cannot do anything, just close application
-                if (string.IsNullOrEmpty(Config.Path))
+                if (string.IsNullOrEmpty(Config.Config.Path))
                 {
                     MessageBox.Show(
                         Translator.GetText("Your root directory for the app does not exist or is empty! Change the root directory or put some files, directories or shortcuts into the /root /directory."),

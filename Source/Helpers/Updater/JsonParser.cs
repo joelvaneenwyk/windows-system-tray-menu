@@ -49,7 +49,7 @@ namespace SystemTrayMenu.Helpers.Updater
     // - No JIT Emit support to parse structures quickly
     // - Limited to parsing <2GB JSON files (due to int.MaxValue)
     // - Parsing of abstract classes or interfaces is NOT supported and will throw an exception.
-    public static class JSONParser
+    public static class JsonParser
     {
         [ThreadStatic]
         private static Stack<List<string>>? splitArrayPool;
@@ -63,10 +63,10 @@ namespace SystemTrayMenu.Helpers.Updater
         public static T? FromJson<T>(this string json)
         {
             // Initialize, if needed, the ThreadStatic variables
-            propertyInfoCache ??= new Dictionary<Type, Dictionary<string, PropertyInfo>>();
-            fieldInfoCache ??= new Dictionary<Type, Dictionary<string, FieldInfo>>();
-            stringBuilder ??= new StringBuilder();
-            splitArrayPool ??= new Stack<List<string>>();
+            propertyInfoCache ??= new();
+            fieldInfoCache ??= new();
+            stringBuilder ??= new();
+            splitArrayPool ??= new();
 
             // Remove all whitespace not within strings to make parsing simpler
             stringBuilder.Length = 0;
@@ -94,10 +94,10 @@ namespace SystemTrayMenu.Helpers.Updater
         internal static object? ParseValue(Type type, string json)
         {
             // Initialize, if needed, the ThreadStatic variables
-            propertyInfoCache ??= new Dictionary<Type, Dictionary<string, PropertyInfo>>();
-            fieldInfoCache ??= new Dictionary<Type, Dictionary<string, FieldInfo>>();
-            stringBuilder ??= new StringBuilder();
-            splitArrayPool ??= new Stack<List<string>>();
+            propertyInfoCache ??= new();
+            fieldInfoCache ??= new();
+            stringBuilder ??= new();
+            splitArrayPool ??= new();
 
             if (type == typeof(string))
             {
@@ -307,7 +307,7 @@ namespace SystemTrayMenu.Helpers.Updater
         // Splits { <value>:<value>, <value>:<value> } and [ <value>, <value> ] into a list of <value> strings
         private static List<string> Split(string json)
         {
-            List<string> splitArray = splitArrayPool!.Count > 0 ? splitArrayPool.Pop() : new List<string>();
+            List<string> splitArray = splitArrayPool!.Count > 0 ? splitArrayPool.Pop() : new();
             splitArray.Clear();
             if (json.Length == 2)
             {

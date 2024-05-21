@@ -17,6 +17,8 @@ namespace SystemTrayMenu.UserInterface
     using Properties;
     using FolderBrowseDialog;
     using Utilities;
+    using Config;
+
     // #todo #joelvaneenwyk
     // using Windows.ApplicationModel;
 

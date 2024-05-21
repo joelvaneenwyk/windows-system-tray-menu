@@ -14,6 +14,8 @@ namespace SystemTrayMenu.DataClasses
     using System.Windows.Media.Imaging;
     using Helpers;
     using Properties;
+    using Config;
+    using Utilities.File;
     using UserInterface;
     using Utilities;
 

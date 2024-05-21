@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
         xmlns:u="clr-namespace:SystemTrayMenu.Utilities"
-        xmlns:stm="clr-namespace:SystemTrayMenu"
+        xmlns:stm="clr-namespace:SystemTrayMenu.Config"
         x:Class="SystemTrayMenu.UserInterface.ColorPickerWindow"
         Style="{StaticResource {x:Type Window}}" mc:Ignorable="d" d:Background="{x:Static stm:MenuDefines.ColorBackground}"
         Title="{u:Translate 'Choose color'}" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" ResizeMode="CanResizeWithGrip">
