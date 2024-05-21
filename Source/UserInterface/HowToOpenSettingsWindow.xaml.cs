@@ -7,7 +7,7 @@
 namespace SystemTrayMenu.UserInterface
 {
     using System.Windows;
-    using SystemTrayMenu.Utilities;
+    using Utilities;
 
     /// <summary>
     /// Logic of HowToOpenSettings window.

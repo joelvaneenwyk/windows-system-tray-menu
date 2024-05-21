@@ -15,14 +15,14 @@ namespace SystemTrayMenu.Business
     using System.Windows.Input;
     using System.Windows.Threading;
     using Microsoft.Win32;
-    using SystemTrayMenu.DataClasses;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.UserInterface;
-    using SystemTrayMenu.Utilities;
-    using Menu = SystemTrayMenu.UserInterface.Menu;
-    using StartLocation = SystemTrayMenu.UserInterface.Menu.StartLocation;
+    using DataClasses;
+    using DllImports;
+    using Helpers;
+    using Properties;
+    using UserInterface;
+    using Utilities;
+    using Menu = UserInterface.Menu;
+    using StartLocation = UserInterface.Menu.StartLocation;
 
     internal class Menus : IDisposable
     {

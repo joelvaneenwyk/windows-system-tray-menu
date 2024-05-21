@@ -13,9 +13,9 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Utilities;
-    using static SystemTrayMenu.Helpers.GlobalHotkeys;
+    using Helpers;
+    using Utilities;
+    using static Helpers.GlobalHotkeys;
 
     public sealed class HotkeySelector : TextBox
     {

@@ -6,7 +6,7 @@ namespace SystemTrayMenu.Business
 {
     using System;
     using System.Windows.Threading;
-    using SystemTrayMenu.DataClasses;
+    using DataClasses;
 
     internal class WaitToLoadMenu : IDisposable
     {

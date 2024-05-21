@@ -7,7 +7,7 @@ namespace SystemTrayMenu.Helpers
     using System;
     using System.Drawing;
     using System.Runtime.InteropServices;
-    using static SystemTrayMenu.DllImports.NativeMethods;
+    using static DllImports.NativeMethods;
 
     public enum TaskbarPosition
     {

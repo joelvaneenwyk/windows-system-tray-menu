@@ -13,7 +13,7 @@ namespace SystemTrayMenu.Business
     using System.Reflection;
     using System.Text;
     using System.Threading;
-    using SystemTrayMenu.Utilities;
+    using Utilities;
 
     internal class IpcPipe : IDisposable
     {

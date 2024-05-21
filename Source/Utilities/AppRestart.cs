@@ -10,7 +10,7 @@ namespace SystemTrayMenu.Utilities
     using System.Runtime.CompilerServices;
     using System.Windows;
 
-    internal class AppRestart
+    internal static class AppRestart
     {
         public static event Action? BeforeRestarting;
 
@@ -42,7 +42,7 @@ namespace SystemTrayMenu.Utilities
 
             using (Process p = new())
             {
-                string? fileName = System.Environment.ProcessPath;
+                string? fileName = Environment.ProcessPath;
                 if (string.IsNullOrEmpty(fileName))
                 {
                     Log.Warn("Restart failed", new());

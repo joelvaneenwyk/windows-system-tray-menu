@@ -22,7 +22,7 @@ namespace SystemTrayMenu.Utilities
             {
                 driveNamesToRemove.Remove(driveInfo.Name[0]);
                 string linkPath = GetLinkPathFromDriveName(driveInfo.Name[..1]);
-                if (!System.IO.File.Exists(linkPath))
+                if (!File.Exists(linkPath))
                 {
                     CreateShortcut(linkPath, driveInfo.Name);
                 }
@@ -34,7 +34,7 @@ namespace SystemTrayMenu.Utilities
 
                 try
                 {
-                    System.IO.File.Delete(possibleShortcut);
+                    File.Delete(possibleShortcut);
                 }
                 catch (Exception ex)
                 {

@@ -9,10 +9,10 @@ namespace SystemTrayMenu
     using System.Windows;
     using System.Windows.Media;
     using Microsoft.Win32;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.UserInterface.FolderBrowseDialog;
-    using SystemTrayMenu.Utilities;
+    using DllImports;
+    using Properties;
+    using UserInterface.FolderBrowseDialog;
+    using Utilities;
     using Icon = System.Drawing.Icon;
 
     public static class Config

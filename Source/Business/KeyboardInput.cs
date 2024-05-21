@@ -6,10 +6,10 @@ namespace SystemTrayMenu.Business
 {
     using System;
     using System.Windows.Input;
-    using SystemTrayMenu.DataClasses;
-    using SystemTrayMenu.UserInterface;
-    using SystemTrayMenu.Utilities;
-    using static SystemTrayMenu.Helpers.GlobalHotkeys;
+    using DataClasses;
+    using UserInterface;
+    using Utilities;
+    using static Helpers.GlobalHotkeys;
 
     internal class KeyboardInput : IDisposable
     {

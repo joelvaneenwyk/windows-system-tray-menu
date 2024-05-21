@@ -12,10 +12,10 @@ namespace SystemTrayMenu.DataClasses
     using System.Windows;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.UserInterface;
-    using SystemTrayMenu.Utilities;
+    using Helpers;
+    using Properties;
+    using UserInterface;
+    using Utilities;
 
     internal class RowData : INotifyPropertyChanged
     {

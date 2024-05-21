@@ -20,7 +20,7 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows.Input;
     using System.Windows.Threading;
     using Microsoft.Win32;
-    using SystemTrayMenu.Utilities;
+    using Utilities;
 
     /// <summary>
     /// Logic of About window.

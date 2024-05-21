@@ -10,8 +10,8 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows;
     using System.Windows.Threading;
     using H.NotifyIcon.Core;
-    using SystemTrayMenu.Helpers.Updater;
-    using SystemTrayMenu.Utilities;
+    using Helpers.Updater;
+    using Utilities;
 
     internal class AppContextMenu
     {

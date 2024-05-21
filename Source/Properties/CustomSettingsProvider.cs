@@ -12,7 +12,7 @@ namespace SystemTrayMenu.Properties
     using System.Linq;
     using System.Reflection;
     using System.Xml.Linq;
-    using SystemTrayMenu.Utilities;
+    using Utilities;
 
     internal class CustomSettingsProvider : SettingsProvider
     {

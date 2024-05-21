@@ -9,8 +9,8 @@ namespace SystemTrayMenu.UserInterface.FolderBrowseDialog
     using System.Runtime.Versioning;
     using System.Windows;
     using System.Windows.Interop;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Utilities;
+    using DllImports;
+    using Utilities;
 
     public class FolderDialog : IFolderDialog, IDisposable
     {

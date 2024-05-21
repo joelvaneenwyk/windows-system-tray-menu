@@ -14,12 +14,12 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Animation;
-    using SystemTrayMenu.Business;
-    using SystemTrayMenu.DataClasses;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.Utilities;
+    using Business;
+    using DataClasses;
+    using DllImports;
+    using Helpers;
+    using Properties;
+    using Utilities;
 
     /// <summary>
     /// Logic of Menu window.

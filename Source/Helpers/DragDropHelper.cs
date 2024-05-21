@@ -10,8 +10,8 @@ namespace SystemTrayMenu.Helpers
     using System.Text;
     using System.Threading;
     using System.Windows;
-    using SystemTrayMenu.UserInterface;
-    using SystemTrayMenu.Utilities;
+    using UserInterface;
+    using Utilities;
 
     public static class DragDropHelper
     {

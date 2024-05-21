@@ -7,7 +7,7 @@ namespace SystemTrayMenu.Utilities
     using System;
     using System.Diagnostics;
     using System.Linq;
-    using SystemTrayMenu.Business;
+    using Business;
 
     internal static class SingleAppInstance
     {

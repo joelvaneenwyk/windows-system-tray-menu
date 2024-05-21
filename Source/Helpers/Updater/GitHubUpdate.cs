@@ -9,8 +9,8 @@ namespace SystemTrayMenu.Helpers.Updater
     using System.Net.Http;
     using System.Reflection;
     using System.Windows;
-    using SystemTrayMenu.UserInterface;
-    using SystemTrayMenu.Utilities;
+    using UserInterface;
+    using Utilities;
 
     public class GitHubUpdate
     {

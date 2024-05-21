@@ -2,15 +2,14 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System;
+using System.Reflection;
+using System.Windows;
 using JetBrains.Annotations;
+using SystemTrayMenu.Utilities;
 
 namespace SystemTrayMenu
 {
-    using System;
-    using System.Reflection;
-    using System.Windows;
-    using SystemTrayMenu.Utilities;
-
     [PublicAPI]
     public static class Program
     {
@@ -41,8 +40,8 @@ namespace SystemTrayMenu
                 if (SingleAppInstance.Initialize())
                 {
                     AppDomain currentDomain = AppDomain.CurrentDomain;
-                    currentDomain.UnhandledException += (sender, args)
-                        => AskUserSendError((Exception)args.ExceptionObject);
+                    currentDomain.UnhandledException += (sender, exceptionEventArgs)
+                        => AskUserSendError((Exception)exceptionEventArgs.ExceptionObject);
         
                     Scaling.Initialize();
                     FolderOptions.Initialize();

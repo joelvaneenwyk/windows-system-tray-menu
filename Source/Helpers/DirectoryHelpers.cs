@@ -11,8 +11,8 @@ namespace SystemTrayMenu.Helpers
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
-    using SystemTrayMenu.DataClasses;
-    using SystemTrayMenu.Utilities;
+    using DataClasses;
+    using Utilities;
 
     internal static class DirectoryHelpers
     {

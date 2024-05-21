@@ -13,10 +13,10 @@ namespace SystemTrayMenu.UserInterface
     using System.Windows.Controls;
     using System.Windows.Input;
     using Microsoft.Win32;
-    using SystemTrayMenu.Helpers;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.UserInterface.FolderBrowseDialog;
-    using SystemTrayMenu.Utilities;
+    using Helpers;
+    using Properties;
+    using FolderBrowseDialog;
+    using Utilities;
     // #todo #joelvaneenwyk
     // using Windows.ApplicationModel;
 

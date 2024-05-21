@@ -12,8 +12,8 @@ namespace SystemTrayMenu.Helpers
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Interop;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Utilities;
+    using DllImports;
+    using Utilities;
 
     internal static class GlobalHotkeys
     {

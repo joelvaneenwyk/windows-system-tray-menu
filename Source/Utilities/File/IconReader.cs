@@ -15,8 +15,8 @@ namespace SystemTrayMenu.Utilities
     using System.Windows;
     using System.Windows.Interop;
     using System.Windows.Media.Imaging;
-    using SystemTrayMenu.DllImports;
-    using SystemTrayMenu.Helpers;
+    using DllImports;
+    using Helpers;
 
     /// <summary>
     /// Provides static methods to read system icons for folders and files.

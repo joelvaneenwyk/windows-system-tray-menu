@@ -6,8 +6,8 @@ namespace SystemTrayMenu.Utilities
 {
     using System.Globalization;
     using System.Resources;
-    using SystemTrayMenu.Properties;
-    using SystemTrayMenu.UserInterface;
+    using Properties;
+    using UserInterface;
 
     internal static class Translator
     {

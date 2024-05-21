@@ -7,7 +7,7 @@
 namespace SystemTrayMenu.UserInterface
 {
     using System.Windows;
-    using SystemTrayMenu.Helpers.Updater;
+    using Helpers.Updater;
 
     /// <summary>
     /// Logic of Update window.
