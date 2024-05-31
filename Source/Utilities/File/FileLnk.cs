@@ -9,7 +9,7 @@ namespace SystemTrayMenu.Utilities.File
     using System.Threading;
     //  using Shell32;
 
-    internal class FileLnk
+    internal static class FileLnk
     {
         public static string GetResolvedFileName(string shortcutFilename, out bool isFolder)
         {
@@ -93,7 +93,6 @@ namespace SystemTrayMenu.Utilities.File
             }
             catch (UnauthorizedAccessException)
             {
-                // #todo #joelvaneenwyk
                 // https://stackoverflow.com/questions/2934420/why-do-i-get-e-accessdenied-when-reading-public-shortcuts-through-shell32
                 // e.g. Administrative Tools\Component Services.lnk which can not be resolved, do not spam the logfile in this case
             }

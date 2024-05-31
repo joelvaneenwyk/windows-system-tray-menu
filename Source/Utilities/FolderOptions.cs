@@ -69,8 +69,7 @@ namespace SystemTrayMenu.Utilities
             {
                 FileAttributes attributes = System.IO.File.GetAttributes(path);
                 hasHiddenFlag = attributes.HasFlag(FileAttributes.Hidden);
-                bool hasSystemFlag = attributes.HasFlag(
-                    FileAttributes.Hidden | FileAttributes.System);
+                bool hasSystemFlag = attributes.HasFlag(FileAttributes.Hidden | FileAttributes.System);
                 if (Properties.Settings.Default.SystemSettingsShowHiddenFiles)
                 {
                     if ((hideHiddenEntries && hasHiddenFlag) ||

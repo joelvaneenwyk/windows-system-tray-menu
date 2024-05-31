@@ -13,16 +13,16 @@ namespace SystemTrayMenu.Utilities
     // #todo #joelvaneenwyk
     // using IWshRuntimeLibrary;
 
-    internal class GenerateDriveShortcuts
+    internal static class GenerateDriveShortcuts
     {
+        private static readonly List<char> DriveNamesToRemove = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();
+
         public static void Start()
         {
-            List<char> driveNamesToRemove = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray().ToList();
-
             DriveInfo[] driveInfos = DriveInfo.GetDrives();
             foreach (DriveInfo driveInfo in driveInfos)
             {
-                driveNamesToRemove.Remove(driveInfo.Name[0]);
+                DriveNamesToRemove.Remove(driveInfo.Name[0]);
                 string linkPath = GetLinkPathFromDriveName(driveInfo.Name[..1]);
                 if (!System.IO.File.Exists(linkPath))
                 {
@@ -30,7 +30,7 @@ namespace SystemTrayMenu.Utilities
                 }
             }
 
-            foreach (char driveName in driveNamesToRemove)
+            foreach (char driveName in DriveNamesToRemove)
             {
                 string possibleShortcut = GetLinkPathFromDriveName(driveName.ToString());
 

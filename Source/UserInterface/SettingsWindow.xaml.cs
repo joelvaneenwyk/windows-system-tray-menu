@@ -2,6 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using JetBrains.Annotations;
+
 namespace SystemTrayMenu.UserInterface
 {
     using System;
@@ -18,14 +20,11 @@ namespace SystemTrayMenu.UserInterface
     using FolderBrowseDialog;
     using Utilities;
     using Config;
-
-    // #todo #joelvaneenwyk
-    // using Windows.ApplicationModel;
-
+    
     /// <summary>
-    /// Logic of SettingsWindow.xaml .
+    /// Logic of SettingsWindow.xaml
     /// </summary>
-    public partial class SettingsWindow : Window
+    public partial class SettingsWindow
     {
         private const string MenuName = @"Software\Classes\directory\shell\SystemTrayMenu_SetAsRootFolder";
         private const string Command = @"Software\Classes\directory\shell\SystemTrayMenu_SetAsRootFolder\command";
@@ -34,26 +33,9 @@ namespace SystemTrayMenu.UserInterface
 
         public SettingsWindow()
         {
-            // #todo #joelvaneenwyk
-            // InitializeComponent();
-
             PreviewKeyDown += HandlePreviewKeyDown;
 
             Translate();
-            void Translate()
-            {
-                if (IsStartupTask())
-                {
-                    groupBoxAutostart.Content = $"{(string)groupBoxAutostart.Content} ({Translator.GetText("Task Manager")})";
-                }
-
-                // TODO: Find a way to escape ' within inline single quotes markup string in XAML
-                buttonAddSampleStartMenuFolder.Content = Translator.GetText("Add sample directory 'Start Menu'");
-                checkBoxShowFunctionKeyOpenFolder.Content = Translator.GetText("Show function key 'Open Folder'");
-                checkBoxShowFunctionKeyPinMenu.Content = Translator.GetText("Show function key 'Pin menu'");
-                checkBoxShowFunctionKeySettings.Content = Translator.GetText("Show function key 'Settings'");
-                checkBoxShowFunctionKeyRestart.Content = Translator.GetText("Show function key 'Restart'");
-            }
 
             textBoxFolder.Text = Config.Path;
             checkBoxSetFolderByWindowsContextMenu.IsChecked = Settings.Default.SetFolderByWindowsContextMenu;
@@ -341,6 +323,22 @@ namespace SystemTrayMenu.UserInterface
             textBoxColorArrowHoverBackgroundDarkMode.Text = Settings.Default.ColorArrowHoverBackgroundDarkMode;
 
             Closed += (_, _) => singletonWindow = null;
+            return;
+
+            void Translate()
+            {
+                if (IsStartupTask())
+                {
+                    groupBoxAutostart.Content = $"{(string)groupBoxAutostart.Content} ({Translator.GetText("Task Manager")})";
+                }
+
+                // TODO: Find a way to escape ' within inline single quotes markup string in XAML
+                buttonAddSampleStartMenuFolder.Content = Translator.GetText("Add sample directory 'Start Menu'");
+                checkBoxShowFunctionKeyOpenFolder.Content = Translator.GetText("Show function key 'Open Folder'");
+                checkBoxShowFunctionKeyPinMenu.Content = Translator.GetText("Show function key 'Pin menu'");
+                checkBoxShowFunctionKeySettings.Content = Translator.GetText("Show function key 'Settings'");
+                checkBoxShowFunctionKeyRestart.Content = Translator.GetText("Show function key 'Restart'");
+            }
         }
 
         public static void ShowSingleInstance()
@@ -368,7 +366,7 @@ namespace SystemTrayMenu.UserInterface
             {
                 registryKeyContextMenu = Registry.CurrentUser.CreateSubKey(MenuName);
                 string? binLocation = Environment.ProcessPath;
-                if ((registryKeyContextMenu != null) && (binLocation != null))
+                if (binLocation != null)
                 {
                     registryKeyContextMenu.SetValue(string.Empty, Translator.GetText("Set as directory"));
                     registryKeyContextMenu.SetValue("Icon", binLocation);
@@ -418,13 +416,11 @@ namespace SystemTrayMenu.UserInterface
         }
 
         private static bool IsStartupTask()
-        {
-            bool useStartupTask = false;
 #if RELEASEPACKAGE
-            useStartupTask = true;
+            => true;
+#else
+            => false;
 #endif
-            return useStartupTask;
-        }
 
         private void HandlePreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -669,26 +665,27 @@ namespace SystemTrayMenu.UserInterface
             Enabled,
             Disabled,
             DisabledByPolicy,
-            DisabledByUser
+            DisabledByUser,
+            EnabledByPolicy
         }
 
+        [UsedImplicitly]
         private void UpdateLabelStartupStatus(StartupTaskState newState)
         {
-            // #todo #joelvaneenwyk
-            // switch (newState)
-            // {
-            //     case StartupTaskState.Disabled:
-            //     case StartupTaskState.DisabledByUser:
-            //     case StartupTaskState.DisabledByPolicy:
-            //         labelStartupStatus.Content = Translator.GetText("Deactivated");
-            //         break;
-            //     case StartupTaskState.Enabled:
-            //     case StartupTaskState.EnabledByPolicy:
-            //         labelStartupStatus.Content = Translator.GetText("Activated");
-            //         break;
-            //     default:
-            //         break;
-            // }
+            switch (newState)
+            {
+                case StartupTaskState.Disabled:
+                case StartupTaskState.DisabledByUser:
+                case StartupTaskState.DisabledByPolicy:
+                    labelStartupStatus.Content = Translator.GetText("Deactivated");
+                    break;
+                case StartupTaskState.Enabled:
+                case StartupTaskState.EnabledByPolicy:
+                    labelStartupStatus.Content = Translator.GetText("Activated");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void ButtonChange_Click(object sender, RoutedEventArgs e)
