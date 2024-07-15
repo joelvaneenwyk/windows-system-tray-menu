@@ -54,7 +54,7 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="H.NotifyIcon" Version="2.0.131" />
+		<PackageReference Include="H.NotifyIcon" Version="2.1.0" />
 		<PackageReference Include="HidSharp" Version="2.1.0" />
 		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
